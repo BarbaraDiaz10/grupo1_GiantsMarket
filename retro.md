@@ -18,3 +18,4 @@ Retroespectiva
 
 5. Dejar de hacer.
 5.1 Dejar las cosas para última hora.
+
