@@ -1,0 +1,15 @@
+footer{
+    background-color: #1d1d1d;
+    color: #fff;
+}
+div.footer {
+    display: flex;
+    flex-direction: row;
+    padding: 10%;
+    align-items: center;
+}
+
+.copyright{
+    font-variant: small-caps;
+    text-align: center;
+}

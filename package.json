@@ -1,0 +1,23 @@
+{
+  "name": "grupo1_giantsmarket",
+  "version": "1.0.0",
+  "description": "Nuestro producto va enfocado a un mercado con alto poder adquisitivo. En el que puedas obtener lo que menos te imaginas de manera fácil y rápida.\r Nuestro target va dirigido a esos clientes con gustos excéntricos que no son comercializados en ningún otro sitio.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BarbaraDiaz10/grupo1_GiantsMarket.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BarbaraDiaz10/grupo1_GiantsMarket/issues"
+  },
+  "homepage": "https://github.com/BarbaraDiaz10/grupo1_GiantsMarket#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
