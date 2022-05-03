@@ -42,7 +42,7 @@ form{
     margin: auto;
 }
 
-form .grupo{
+form .group{
     position: relative;
     margin: 45px ;
 }
@@ -80,13 +80,13 @@ input:valid~label{
     color: #2196f3;
 }
 
-.barra{
+.bar{
     position: relative;
     display: block;
     width: 100%;
 }
 
-.barra::before{
+.bar::before{
     content: "";
     height: 2px;
     width: 0%;
@@ -97,7 +97,7 @@ input:valid~label{
     left: 0;
 }
 
-input:focus~.barra::before{
+input:focus~.bar::before{
     width: 100%;
 }
 
