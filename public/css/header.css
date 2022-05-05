@@ -1,21 +1,26 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
 header {
     background-color: #000;
-  }
+}
 
-  div.top-header {
+div.top-header {
     display: flex;
     padding: 4%;
     align-items: center;
-  }
+}
 
-.top-header{
+.top-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: #fff;
     margin-left: 20px;
     margin-right: 20px;
-    
 }
 
 header .form .input {
@@ -26,9 +31,9 @@ header .form .input {
     padding: 2px;
     border-radius: 4px;
     height: 100px;
-  }
+}
 
-header .top-header .logo img{
+header .top-header .logo img {
     width: 180px;
 }
 
@@ -40,33 +45,34 @@ header nav {
     flex-wrap: wrap;
     background-color: #1d1d1d;
     font-variant: small-caps;
-  }
-  header ul {
-    display: flex;
-    justify-content: space-around;
-  }
-  header ul li {
-    list-style-type: none;
-    padding: 10px;
-  }
-  
-  header ul li a {
-    text-decoration: none;
-    color: #fff;
-  }
-
-header i{
-  color: #fff;
 }
 
+header ul {
+    display: flex;
+    justify-content: space-around;
+}
 
-input{
-  background: #fff;
-  color: #000;
-  font-size: 18px;
-  padding: 10px 10px 10px 5px;
-  display: block;
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid var(--colorTextos);
+header ul li {
+    list-style-type: none;
+    padding: 10px;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+header i {
+    color: #fff;
+}
+
+input {
+    background: #fff;
+    color: #000;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--colorTextos);
 }
