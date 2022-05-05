@@ -4,7 +4,7 @@ header {
 
   div.top-header {
     display: flex;
-    padding: 5%;
+    padding: 4%;
     align-items: center;
   }
 
@@ -29,7 +29,7 @@ header .form .input {
   }
 
 header .top-header .logo img{
-    width: 120px;
+    width: 180px;
 }
 
 header nav {
@@ -54,3 +54,19 @@ header nav {
     text-decoration: none;
     color: #fff;
   }
+
+header i{
+  color: #fff;
+}
+
+
+input{
+  background: #fff;
+  color: #000;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--colorTextos);
+}
