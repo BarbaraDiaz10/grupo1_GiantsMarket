@@ -1,4 +1,27 @@
-Retroespectiva
+-- SPRINT 3. --
+Start doing:
+1.Documentarnos de las consignas del sprint 3.
+2. Actualizar las actividades del tablero.
+3. Repartir los puntos.
+4. Retomar y aplicar los conocimientos vistos en el curso.
+
+More of:
+1. Documentarnos para profundizar conocimientos en EJS.
+2. Homologar las ideas del equipo.
+3. Fijar fechas de compromiso de cada tarea del equipo.
+
+Keep doing:
+1. Mantener el trabajo en equipo y la comunicación.
+2. Realizar un feedback periódico de cada asignación.
+
+Less of:
+1. Preocuparnos en lugar de ocuparnos.
+2. Aplicar malas practicas.
+
+Stop Doing:
+1. No fijarnos en nuestros documentos de standares
+
+-- SPRINT 2. --
 1. Comenzar a hacer.
 1.1 Empezar a organizar el tablero de trabajo.
 1.2 Asignar los puntos a trabajar a cada miembro del equipo.
