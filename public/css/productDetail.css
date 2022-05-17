@@ -9,17 +9,17 @@ img {
     height: auto;
 }
 
-.card {
+.card-detail {
     background: white;
     margin-bottom: 2em;
 }
 
-.card a {
+.card-detail a {
     color: black;
     text-decoration: none;
 }
 
-.card a:hover {
+.card-detail a:hover {
     box-shadow: 3px 3px 8px hsl(0, 0%, 80%);
 }
 
@@ -51,7 +51,7 @@ img {
     font-variant: small-caps;
 }
 
-.card {
+.card-detail {
     flex: 0 1 30%;
 }
 

@@ -1,79 +1,85 @@
 <!DOCTYPE html>
 <html lang="es">
-    <!--HEAD-->
-    <%- include('partials/head')  %> 
-<body>
-    <!--HEADER-->
-    <%- include('partials/header')  %> 
+<!--HEAD-->
+<%- include('partials/head')  %>
 
-    <main>
-        <section class="mainCards">
-            <article class="productImage">
-                <img src="/images/fc.jpg" alt="Torre Eiffel">
-            </article>
+    <body>
+        <!--HEADER-->
+        <%- include('partials/header')  %>
 
-            <article class="descriptionCard">
+            <main>
+                <section class="mainCards">
+                    <article class="productImage">
+                        <img src="/images/fc.jpg" alt="Torre Eiffel">
+                    </article>
 
-                    <div class="descriptionCard-content">
+                    <article class="descriptionCard">
 
-                        <h2>Torre Eiffel</h2>
-                        <h3>Precio: $85.000.000.000</h3>
-                        <p>
-                            Un pequeño souvenir, que te quedara de recuerdo.
-                        </p>
-                        <p>
-                            La Torre Eiffel (Tour Eiffel, en francés), inicialmente llamada Tour de 300 mètres (Torre de 300 metros) es una estructura de hierro pudelado diseñada inicialmente por los ingenieros civiles Maurice Koechlin y Émile Nouguier y construida, tras el rediseño estético de Stephen Sauvestre, por el ingeniero civil francés Alexandre Gustave Eiffel y sus colaboradores para la Exposición Universal de 1889 en París.
-                        </p>
-                        <p>
-                            Situada en el extremo del Campo de Marte a la orilla del río Sena, este monumento parisino, símbolo de Francia y de su capital, es la estructura más alta de la ciudad y el monumento que cobra entrada más visitado del mundo, con 7,1 millones de turistas cada año.
-                        </p>
-                        <p>
-                            Con una altura de 300 metros, prolongada más tarde con una antena hasta los 324 metros, la torre Eiffel fue la estructura más elevada del mundo durante 41 años.
-                        </p>
-                        <p>
-                            Fue construida en dos años, dos meses y cinco días, y en su momento generó cierta controversia entre los artistas de la época, que la veían como un monstruo de hierro. Tras finalizar su función como parte de las Exposiciones Universales de 1889 y 1900, fue utilizada en pruebas del ejército francés con antenas de comunicación, y hoy en día sirve, además de atractivo turístico, como emisora de programas radiofónicos y televisivos. El 15 de marzo de 2022 se sustituyó la antena de radio con la ayuda de un helicóptero, pasando de 324 a 330 m de altura total
-                        </p>
+                        <div class="descriptionCard-content">
+
+                            <h2>Torre Eiffel</h2>
+                            <h3>Precio: $85.000.000.000</h3>
+                            <p>
+                                Un pequeño souvenir, que te quedara de recuerdo.
+                            </p>
+                            <p>
+                                La Torre Eiffel (Tour Eiffel, en francés), inicialmente llamada Tour de 300 mètres (Torre de 300 metros) es una estructura de hierro pudelado diseñada inicialmente por los ingenieros civiles Maurice Koechlin y Émile Nouguier y construida, tras el rediseño
+                                estético de Stephen Sauvestre, por el ingeniero civil francés Alexandre Gustave Eiffel y sus colaboradores para la Exposición Universal de 1889 en París.
+                            </p>
+                            <p>
+                                Situada en el extremo del Campo de Marte a la orilla del río Sena, este monumento parisino, símbolo de Francia y de su capital, es la estructura más alta de la ciudad y el monumento que cobra entrada más visitado del mundo, con 7,1 millones de turistas
+                                cada año.
+                            </p>
+                            <p>
+                                Con una altura de 300 metros, prolongada más tarde con una antena hasta los 324 metros, la torre Eiffel fue la estructura más elevada del mundo durante 41 años.
+                            </p>
+                            <p>
+                                Fue construida en dos años, dos meses y cinco días, y en su momento generó cierta controversia entre los artistas de la época, que la veían como un monstruo de hierro. Tras finalizar su función como parte de las Exposiciones Universales de 1889 y 1900,
+                                fue utilizada en pruebas del ejército francés con antenas de comunicación, y hoy en día sirve, además de atractivo turístico, como emisora de programas radiofónicos y televisivos. El 15 de marzo de 2022 se sustituyó la
+                                antena de radio con la ayuda de un helicóptero, pasando de 324 a 330 m de altura total
+                            </p>
+                        </div>
+                    </article>
+
+
+                    <article class="cartCard">
+                        <div class="cartCard-content">
+                            <h2>$85.000.000.000</h2>
+                            <p>Este producto no puede ser enviado</p>
+                            <p>Stock: 1</p>
+                            <button type="submit">Añadir al carrito </button>
+                            <button type="submit">Compra 1-click </button>
+                            <p><i class="fa fa-lock"></i> Transaccion segura</p>
+                            <h5>Vendido por: GiantsMarket</h5>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="cards">
+                    <div class="card-detail">
+                        <picture class="thumbnail">
+                            <img src="/images/eiffel.jpg" alt="Torre Eiffel">
+                        </picture>
                     </div>
-            </article>
-
-
-            <article class="cartCard">
-                    <div class="cartCard-content">
-                        <h2>$85.000.000.000</h2>
-                         <p>Este producto no puede ser enviado</p>
-                         <p>Stock: 1</p>
-                         <button type="submit">Añadir al carrito </button>
-                         <button type="submit">Compra 1-click </button>
-                         <p><i class="fa fa-lock"></i> Transaccion segura</p>
-                         <h5>Vendido por: GiantsMarket</h5>
+                    <div class="card-detail">
+                        <picture class="thumbnail">
+                            <img src="/images/eiffel1.jpg" alt="Torre Eiffel">
+                        </picture>
                     </div>
-            </article>
-        </section>
+                    <div class="card-detail">
+                        <picture class="thumbnail">
+                            <img src="/images/eiffel2.jpg" alt="Torre Eiffel">
+                        </picture>
+                    </div>
 
-        <section class="cards">
-                <div class="card">
-                    <picture class="thumbnail">
-                        <img src="/images/eiffel.jpg" alt="Torre Eiffel">
-                    </picture>
-                </div>
-                <div class="card">
-                    <picture class="thumbnail">
-                        <img src="/images/eiffel1.jpg" alt="Torre Eiffel">
-                    </picture>
-                </div>
-                <div class="card">
-                    <picture class="thumbnail">
-                        <img src="/images/eiffel2.jpg" alt="Torre Eiffel">
-                    </picture>
-                </div>
-                   
-        </section>
-    </main>
+                </section>
+            </main>
 
-<!--FOOTER-->
-<%- include('partials/footer')  %> 
+            <!--FOOTER-->
+            <%- include('partials/footer')  %>
 
-        
-    <script src="main.js"></script>
-</body>
+
+                <script src="main.js"></script>
+    </body>
+
 </html>
