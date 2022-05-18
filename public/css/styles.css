@@ -52,7 +52,7 @@ form .group{
     margin-top: 10px;
     margin-right: 10px;
     margin-bottom: 2px;
-    margin-left: 200px;
+    margin-left: 150px;
 }
 
 
@@ -154,6 +154,16 @@ button{
     height: 40px;
     font-size: 16px;
     cursor: pointer;
+}
+
+button:hover{
+
+    background: linear-gradient(180deg, #B06AB3 0%, #B06AB3 49%, #4568DC 50%, #4568DC 100%);
+    background-size: 1px 100px;
+    background-position: 0 -50px;
+    transition: all .5s;
+
+    
 }
 
 @media screen and (max-width:500px){
