@@ -40,6 +40,7 @@ img {
 .mainCards {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-between;
     margin: 20px;
 }
@@ -141,16 +142,19 @@ button {
     cursor: pointer;
 }
 
-@media (max-width: 361px) {
+
+
+
+@media (min-width: 768px) {
     .mainCards {
         display: flex;
         flex-direction: column;
     }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 1200px) {
     .mainCards {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
     }
 }

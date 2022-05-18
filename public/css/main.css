@@ -9,6 +9,8 @@ img {
     height: auto;
 }
 
+
+
 .card {
     background: white;
     margin-bottom: 2em;
@@ -50,5 +52,24 @@ img {
 }
 
 .card {
-    flex: 0 1 24%;
+    flex: 0 1 100%;
+}
+
+
+
+@media (min-width: 769px) {
+    .card {
+        display: flex;
+        flex-direction: row;
+        flex: 0 1 48%;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    .card {
+        display: flex;
+        flex-direction: row;
+        flex: 0 1 23%;
+    }
 }
