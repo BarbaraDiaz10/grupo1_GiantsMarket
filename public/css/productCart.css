@@ -106,6 +106,7 @@
     .button {
         margin-top: 15px;
         background: linear-gradient(to right, #B06AB3, #4568DC);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         height: 35px;
         color: #FFF;
         text-align: center;
@@ -113,6 +114,14 @@
         text-decoration: none;
         font-size: 1.3rem;
         border-radius: 3px;
+        cursor: pointer;
+    }
+    
+    .button:hover {
+        background: linear-gradient(180deg, #B06AB3 0%, #B06AB3 49%, #4568DC 50%, #4568DC 100%);
+        background-size: 1px 100px;
+        background-position: 0 -50px;
+        transition: all .5s;
     }
     
     .complete_cart {
