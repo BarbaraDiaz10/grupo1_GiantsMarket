@@ -5,7 +5,7 @@ footer{
 }
 div.footer {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding: 5%;
     align-items: center;
     justify-content: space-between;
@@ -20,6 +20,7 @@ footer ul {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    
   }
   footer ul li {
     list-style-type: none;
@@ -38,3 +39,46 @@ footer ul {
   .logoFooter{
       width: 200px;
   }
+
+  .help{
+      text-align: center
+    }
+
+  .legal{
+    text-align: center
+    }
+    .services{
+        text-align: center
+    }
+
+  
+  @media (min-width: 769px) {
+    div.footer {
+        display: flex;
+        flex-direction: row;
+        padding: 5%;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .help{
+        text-align: left;
+      }
+  
+    .legal{
+      text-align: left
+      }
+      .services{
+          text-align: left
+      }
+}
+
+@media (min-width: 1200px) {
+    div.footer {
+        display: flex;
+        flex-direction: row;
+        padding: 5%;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
