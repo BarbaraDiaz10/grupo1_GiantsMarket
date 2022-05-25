@@ -1,3 +1,24 @@
+-- SPRINT 4. --
+
+Start doing:
+1.Documentarnos sobre el CRUD.
+2.Actualizar las actividades del tablero.
+3.Definir los campos para cada item de producto/usuario.
+4.Crear el JSON.
+
+More of:
+1. Utilizar temas dados en clase.
+
+Keep doing:
+1. Homologar las ideas del equipo.
+2. Mantener compromiso de cada tarea del equipo y entrega en el tiempo asignado.
+
+Less of:
+1. Aplicar malas practicas.
+
+Stop Doing:
+1. Dejar las cosas para última hora.
+
 -- SPRINT 3. --
 
 Start doing:
