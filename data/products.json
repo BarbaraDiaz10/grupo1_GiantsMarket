@@ -1,39 +1,39 @@
 [
     {
         "id": 1,
-        "name": "Gold en Monkey",
-        "description": "massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla",
-        "price": 252351092.38,
+        "name": "Torre Eiffel",
+        "description": "Por si te quieres dar un regalito, este pequeño capricho puede ser tuyo",
+        "price": 252351092,
         "discount": 48,
         "category": "unico",
-        "image": "PRODUCTS-product_f_i_filtro_detalle_tacita.jpg",
-        "transferable": "y",
-        "shipping": 3449,
-        "stock": 846
+        "image": "thumbnailTower.jpg",
+        "transferable": "n",
+        "shipping": 0,
+        "stock": 1
     },
     {
         "id": 2,
-        "name": "Filtro Tacita",
-        "description": "dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum",
+        "name": "Google",
+        "description": "El motor de busqueda mas grande del planeta. Con esto podrias controlar toda la informacion a tu favor",
         "price": 662287503.81,
         "discount": 22,
-        "category": "varios",
-        "image": "PRODUCTS-ROOIBOS-CARAMELO.jpg",
-        "transferable": "y",
-        "shipping": 8906,
-        "stock": 635
+        "category": "unico",
+        "image": "thumbnailGoogle.png",
+        "transferable": "n",
+        "shipping": 0,
+        "stock": 1
     },
     {
         "id": 3,
-        "name": "Albaricoque Maracuyá",
-        "description": "ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio",
+        "name": "Twitter",
+        "description": "Articulo no disponible.",
         "price": 965713299.75,
         "discount": 67,
         "category": "unico",
-        "image": "PRODUCTS-xanela-paraiso.jpg",
+        "image": "thumbnailTwitter.png",
         "transferable": "n",
-        "shipping": 5596,
-        "stock": 491
+        "shipping": 0,
+        "stock": 1
     },
     {
         "id": 4,

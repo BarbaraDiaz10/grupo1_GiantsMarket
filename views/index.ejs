@@ -8,7 +8,26 @@
 
     <main>
         <section class="cards">
+
+            <% unique.forEach(product => { %>
+
             <article class="card">
+                <!-- <section class="product-box"> -->
+                    <a href="/productDetail/<%= product.id%>">
+                        <picture>
+                            <img src="/images/<%= product.image%>" class="thumbnail" alt="imagen de producto">
+                        </picture>
+                        <div class="card-content">
+                            <h2><%= product.name%></h2>
+                            <p><%= product.description%></p>
+                            <p>$ <%= product.price%></p>
+                        </div>
+                    </a>
+                <!-- </section> -->
+            </article>
+            <% }) %>
+
+            <!-- <article class="card">
                 <a href="/productDetail">
                     <picture>
                         <img class="thumbnail" src="/images/thumbnailTower.jpg" alt="Torre Eiffel">
@@ -62,8 +81,8 @@
                         <p>Por si quieres probar la experiencia de ser un dictador, puedes comprar el pais que quieras (mientras este disponible)</p>
                     </div>
                 </a>
-            </article>
-        </section>
+            </article>-->
+        </section> 
     </main>
     <!--FOOTER-->
     <%- include('partials/footer')  %> 
