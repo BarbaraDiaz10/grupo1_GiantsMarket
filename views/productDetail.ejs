@@ -10,33 +10,21 @@
             <main>
                 <section class="mainCards">
                     <article class="productImage">
-                        <img src="/images/fc.jpg" alt="Torre Eiffel">
+                        <img src="/images/<%= product.image%>" alt="Torre Eiffel">
                     </article>
 
                     <article class="descriptionCard">
 
                         <div class="descriptionCard-content">
 
-                            <h2>Torre Eiffel</h2>
-                            <h3>Precio: $85.000.000.000</h3>
+                            <h2>
+                                <%= product.name%>
+                            </h2>
+                            <h3>Precio: $
+                                <%= product.price%>
+                            </h3>
                             <p>
-                                Un pequeño souvenir, que te quedara de recuerdo.
-                            </p>
-                            <p>
-                                La Torre Eiffel (Tour Eiffel, en francés), inicialmente llamada Tour de 300 mètres (Torre de 300 metros) es una estructura de hierro pudelado diseñada inicialmente por los ingenieros civiles Maurice Koechlin y Émile Nouguier y construida, tras el rediseño
-                                estético de Stephen Sauvestre, por el ingeniero civil francés Alexandre Gustave Eiffel y sus colaboradores para la Exposición Universal de 1889 en París.
-                            </p>
-                            <p>
-                                Situada en el extremo del Campo de Marte a la orilla del río Sena, este monumento parisino, símbolo de Francia y de su capital, es la estructura más alta de la ciudad y el monumento que cobra entrada más visitado del mundo, con 7,1 millones de turistas
-                                cada año.
-                            </p>
-                            <p>
-                                Con una altura de 300 metros, prolongada más tarde con una antena hasta los 324 metros, la torre Eiffel fue la estructura más elevada del mundo durante 41 años.
-                            </p>
-                            <p>
-                                Fue construida en dos años, dos meses y cinco días, y en su momento generó cierta controversia entre los artistas de la época, que la veían como un monstruo de hierro. Tras finalizar su función como parte de las Exposiciones Universales de 1889 y 1900,
-                                fue utilizada en pruebas del ejército francés con antenas de comunicación, y hoy en día sirve, además de atractivo turístico, como emisora de programas radiofónicos y televisivos. El 15 de marzo de 2022 se sustituyó la
-                                antena de radio con la ayuda de un helicóptero, pasando de 324 a 330 m de altura total
+                                <%= product.descriptionDetail%>
                             </p>
                         </div>
                     </article>
@@ -44,35 +32,25 @@
 
                     <article class="cartCard">
                         <div class="cartCard-content">
-                            <h2>$85.000.000.000</h2>
-                            <p>Este producto no puede ser enviado</p>
-                            <p>Stock: 1</p>
+                            <h2> $
+                                <%= product.price%>
+                            </h2>
+                            <p>
+                                <%= product.stock =="1"?"Este producto puede ser enviado":"Este producto no puede ser enviado" %>
+                            </p>
+                            <p>Stock:
+                                <%= product.stock%>
+                            </p>
                             <button type="submit">Añadir al carrito </button>
                             <button type="submit">Compra 1-click </button>
                             <p><i class="fa fa-lock"></i> Transaccion segura</p>
                             <h5>Vendido por: GiantsMarket</h5>
+                            <button><a href="/views/edit/<%= product.id %>" class="button">EDITAR PRODUCTO</a></button>
+                            <button type="submit">Eliminar</button>
                         </div>
                     </article>
                 </section>
 
-                <section class="cards">
-                    <div class="card-detail">
-                        <picture class="thumbnail">
-                            <img src="/images/eiffel.jpg" alt="Torre Eiffel">
-                        </picture>
-                    </div>
-                    <div class="card-detail">
-                        <picture class="thumbnail">
-                            <img src="/images/eiffel1.jpg" alt="Torre Eiffel">
-                        </picture>
-                    </div>
-                    <div class="card-detail">
-                        <picture class="thumbnail">
-                            <img src="/images/eiffel2.jpg" alt="Torre Eiffel">
-                        </picture>
-                    </div>
-
-                </section>
             </main>
 
             <!--FOOTER-->

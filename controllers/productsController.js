@@ -10,128 +10,152 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const productsController = {
     index: (req, res) => {
-		res.render('products', { 
-			products,
-			toThousand
-		})
-	},
-
-    productDetail: (req,res) => {
-        let productId = +req.params.id; 
-        let product = products.find(product => product.id === productId) 
-
-		res.render('productDetail', {
-            product,
-			toThousand
-		})
+        res.render('products', {
+            products,
+            toThousand
+        })
     },
 
-    productCart: (req,res) => {
+    productDetail: (req, res) => {
+        let productId = +req.params.id;
+        let product = products.find(product => product.id === productId)
+
+        res.render('productDetail', {
+            product,
+            toThousand
+        })
+    },
+    productCart: (req, res) => {
         res.render("productCart")
     },
 
     create: (req, res) => { //Solo necesitamos pasarle la vista renderizada para que la rellene, es por get
-		res.render('uploadEdit')
-	},
+        res.render('createProduct')
+    },
 
     store: (req, res) => {
 
-		let lastId = 1;
+        let lastId = 1;
 
-		products.forEach(product => {
-			if(product.id > lastId){
-				lastId = product.id
-			}
-		});
+        products.forEach(product => {
+            if (product.id > lastId) {
+                lastId = product.id
+            }
+        });
 
-		let newProduct = { 
-			...req.body, 
-			id: lastId + 1,
-			image: req.file ? req.file.filename : "default-image.png"
-            // mejorar 
-		}
+        let newProduct = {
+            ...req.body,
+            id: lastId + 1,
+            image: req.file ? req.file.filename : "default-image.png"
+                // mejorar 
+        }
 
-		products.push(newProduct)
+        products.push(newProduct)
 
-		writeJson(products)
-		res.redirect('/')
+        writeJson(products)
+        res.redirect('/')
     },
 
+    // edit: (req, res) => {
+    //     let productId = +req.params.id;
+    //     let productToEdit = products.find(product => product.id === productId);
+
+    //     res.render('edit', {
+    //         product: productToEdit
+    //     })
+    // },
     edit: (req, res) => {
-		let productId = +req.params.id;
-		let productToEdit = products.find(product => product.id === productId);
-
-		res.render('uploadEdit', {
-			product: productToEdit
-		})
-	},
-
+        let id = req.params.id
+        let product = products.find(product => product.id == id)
+        res.render("editProduct", { product })
+    },
     update: (req, res) => {
-        let productId = +req.params.id;
+        let id = req.params.id
+        let productToEdit = products.find(product => product.id == id)
 
-		const { name, price, discount, category, description, transferable, shipping, stock } = req.body;
+        productToEdit = {
+            id: productToEdit.id,
+            ...req.body,
+            image: productToEdit.image
+        };
 
-		products.forEach(product => {
-			if(product.id === productId){
-			    product.id = product.id,
-			    product.name = name,
-				product.price = +price,
-				product.discount = discount,
-				product.description = description,
-                product.category = category,
-                product.transferable = transferable,
-                product.shipping = shipping,
-                product.stock = stock
+        let productEdited = products.map(product => {
+            if (product.id == productToEdit.id) {
+                return product = {...productToEdit };
+            }
+            return product
+        })
 
-				if(req.file){
-					if(fs.existsSync("./public/images/products/", product.image)){  
-						fs.unlinkSync(`./public/images/products/${product.image}`)
-					}else{
-						 console.log("No encontré el archivo")
-					}
-					product.image = req.file.filename
-				}else{
-                    product.image = product.image
-				}  
-			}
-		}) 
+        fs.writeFileSync(productsFilePath, JSON.stringify(productEdited));
+        res.redirect('/')
+    },
+    // update: (req, res) => {
+    //     let productId = +req.params.id;
+    //     console.log("entre aqui");
+    //     const { name, price, discount, category, description, descriptionDetail, transferable, shipping, stock } = req.body;
 
-		writeJson(products)
+    //     products.forEach(product => {
+    //         if (product.id === productId) {
+    //             product.id = product.id,
+    //                 product.name = name,
+    //                 product.price = +price,
+    //                 product.discount = discount,
+    //                 product.description = description,
+    //                 product.descriptionDetail = descriptionDetail,
+    //                 product.category = category,
+    //                 product.transferable = transferable,
+    //                 product.shipping = shipping,
+    //                 product.stock = stock
 
-		res.redirect(`/productDetail/${productId}`)
-	},
+    //             if (req.file) {
+    //                 if (fs.existsSync("./public/images/products/", product.image)) {
+    //                     fs.unlinkSync(`./public/images/products/${product.image}`)
+    //                 } else {
+    //                     console.log("No encontré el archivo")
+    //                 }
+    //                 product.image = req.file.filename
+    //             } else {
+    //                 product.image = product.image
+    //             }
+    //         }
+    //     })
+
+    //     writeJson(products)
+
+    //     res.redirect(`/productDetail/${productId}`)
+    // },
 
     destroy: (req, res) => {
-		let productId = +req.params.id;
+        let productId = +req.params.id;
 
-		products.forEach(product => {
-			if(product.id === productId){
+        products.forEach(product => {
+            if (product.id === productId) {
 
-                if(fs.existsSync("./public/images/products/", product.image)){ 
+                if (fs.existsSync("./public/images/products/", product.image)) {
                     fs.unlinkSync(`./public/images/products/${product.image}`)
-				}else{
-                     console.log("No se encontró el producto")
-				}
+                } else {
+                    console.log("No se encontró el producto")
+                }
 
-                let productToDestroyIndex = products.indexOf(product) 
-				if(productToDestroyIndex !== -1) {
-				    products.splice(productToDestroyIndex, 1)
-				}else{
-					console.log('No se encontró el producto')
-			    } 
-			}
-		})
-		writeJson(products)
-		res.redirect('/');
-	},
+                let productToDestroyIndex = products.indexOf(product)
+                if (productToDestroyIndex !== -1) {
+                    products.splice(productToDestroyIndex, 1)
+                } else {
+                    console.log('No se encontró el producto')
+                }
+            }
+        })
+        writeJson(products)
+        res.redirect('/');
+    },
 
 
-    login: (req,res) => {
+    login: (req, res) => {
         res.render("login")
     },
-    register: (req,res) => {
+    register: (req, res) => {
         res.render("register")
     }
 }
 
-module.exports= productsController
+module.exports = productsController

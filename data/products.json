@@ -1,8 +1,8 @@
-[
-    {
+[{
         "id": 1,
         "name": "Torre Eiffel",
         "description": "Por si te quieres dar un regalito, este pequeño capricho puede ser tuyo",
+        "descriptionDetail": "Un pequeño souvenir, que te quedara de recuerdo. La Torre Eiffel (Tour Eiffel, en francés), inicialmente llamada Tour de 300 mètres (Torre de 300 metros) es una estructura de hierro pudelado diseñada inicialmente por los ingenieros civiles Maurice Koechlin y Émile Nouguier y construida, tras el rediseño estético de Stephen Sauvestre, por el ingeniero civil francés Alexandre Gustave Eiffel y sus colaboradores para la Exposición Universal de 1889 en París.  del Campo de Marte a la orilla del río Sena, este monumento parisino, símbolo de Francia y de su capital, es la estructura más alta de la ciudad Situada en el extremo y el monumento que cobra entrada más visitado del mundo, con 7,1 millones de turistas cada año. Con una altura de 300 metros, prolongada más tarde con una antena hasta los 324 metros, la torre Eiffel fue la estructura más elevada del mundo durante 41 años. Fue construida en dos años, dos meses y cinco días, y en su momento generó cierta controversia entre los artistas de la época, que la veían como un monstruo de hierro. Tras finalizar su función como parte de las Exposiciones Universales de 1889 y 1900, fue utilizada en pruebas del ejército francés con antenas de comunicación, y hoy en día sirve, además de atractivo turístico, como emisora de programas radiofónicos y televisivos. El 15 de marzo de 2022 se sustituyó la antena de radio con la ayuda de un helicóptero, pasando de 324 a 330 m de altura total",
         "price": 252351092,
         "discount": 48,
         "category": "unico",

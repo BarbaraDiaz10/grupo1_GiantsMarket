@@ -7,21 +7,21 @@ const unique = products.filter(product => product.category == 'unico');
 
 
 const mainController = {
-    index: (req,res) => {
-        res.render("index", {several,unique})
+    index: (req, res) => {
+        res.render("index", { several, unique })
     },
-    productDetail: (req,res) => {
-        res.render("productDetail")
+    productDetail: (req, res) => {
+        res.render("productDetail", { several, unique })
     },
-    productCart: (req,res) => {
-        res.render("productCart")
+    productCart: (req, res) => {
+        res.render("productCart", { several, unique })
     },
-    login: (req,res) => {
+    login: (req, res) => {
         res.render("login")
     },
-    register: (req,res) => {
+    register: (req, res) => {
         res.render("register")
     }
 }
 
-module.exports= mainController
+module.exports = mainController

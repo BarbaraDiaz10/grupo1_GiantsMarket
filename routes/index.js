@@ -2,16 +2,16 @@ var express = require('express');
 var router = express.Router();
 const controller = require('../controllers/mainController')
 const productsController = require('../controllers/productsController')
-
+const upload = require('../middlewares/uploadProductFiles');
 /* GET home page. */
-router.get('/', controller.index) ;
-router.get('/', productsController.index) ;
-router.get('/productDetail', controller.productDetail) ;
-router.get('/productCart', controller.productCart) ;
-router.get('/login', controller.login) ;
-router.get('/register', controller.register) ;
-
-
-
-
+router.get('/', controller.index);
+router.get('/', productsController.index);
+router.get('/productDetail/:id/', productsController.productDetail);
+router.get('/productCart', controller.productCart);
+router.get('/login', controller.login);
+router.get('/register', controller.register);
+/*** EDIT ONE PRODUCT ***/
+router.get('/views/edit/:id', productsController.edit);
+router.put('/:id', upload.single('image'), productsController.update);
+router.put('/views/edit/:id', productsController.update);
 module.exports = router;
