@@ -11,7 +11,6 @@ router.get('/productCart', controller.productCart);
 router.get('/login', controller.login);
 router.get('/register', controller.register);
 /*** EDIT ONE PRODUCT ***/
-router.get('/views/edit/:id', productsController.edit);
-router.put('/:id', upload.single('image'), productsController.update);
-router.put('/views/edit/:id', productsController.update);
+router.get('/views/edit/:id', productsController.edit); 
+router.put('/:id', productsController.update);
 module.exports = router;
