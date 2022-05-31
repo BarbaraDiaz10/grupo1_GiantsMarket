@@ -56,18 +56,16 @@ const productsController = {
         res.redirect('/')
     },
 
-    // edit: (req, res) => {
-    //     let productId = +req.params.id;
-    //     let productToEdit = products.find(product => product.id === productId);
-
-    //     res.render('edit', {
-    //         product: productToEdit
-    //     })
-    // },
+     
     edit: (req, res) => {
         let id = req.params.id
         let product = products.find(product => product.id == id)
-        res.render("editProduct", { product })
+        res.render("editProduct", {product})
+    },
+    edit: (req, res) => {
+        let id = req.params.id
+        let product = products.find(product => product.id == id)
+        res.render("editProduct", {product})
     },
     update: (req, res) => {
         let id = req.params.id
@@ -76,54 +74,20 @@ const productsController = {
         productToEdit = {
             id: productToEdit.id,
             ...req.body,
-            image: productToEdit.image
-        };
+            image: productToEdit.image,
+        }
 
         let productEdited = products.map(product => {
             if (product.id == productToEdit.id) {
-                return product = {...productToEdit };
+                return product = {...productToEdit}
             }
             return product
         })
 
-        fs.writeFileSync(productsFilePath, JSON.stringify(productEdited));
-        res.redirect('/')
+        fs.writeFileSync(productsFilePath, JSON.stringify$(productEdited));
+        res.redirect('/productDetail')
     },
-    // update: (req, res) => {
-    //     let productId = +req.params.id;
-    //     console.log("entre aqui");
-    //     const { name, price, discount, category, description, descriptionDetail, transferable, shipping, stock } = req.body;
-
-    //     products.forEach(product => {
-    //         if (product.id === productId) {
-    //             product.id = product.id,
-    //                 product.name = name,
-    //                 product.price = +price,
-    //                 product.discount = discount,
-    //                 product.description = description,
-    //                 product.descriptionDetail = descriptionDetail,
-    //                 product.category = category,
-    //                 product.transferable = transferable,
-    //                 product.shipping = shipping,
-    //                 product.stock = stock
-
-    //             if (req.file) {
-    //                 if (fs.existsSync("./public/images/products/", product.image)) {
-    //                     fs.unlinkSync(`./public/images/products/${product.image}`)
-    //                 } else {
-    //                     console.log("No encontré el archivo")
-    //                 }
-    //                 product.image = req.file.filename
-    //             } else {
-    //                 product.image = product.image
-    //             }
-    //         }
-    //     })
-
-    //     writeJson(products)
-
-    //     res.redirect(`/productDetail/${productId}`)
-    // },
+     
 
     destroy: (req, res) => {
         let productId = +req.params.id;
