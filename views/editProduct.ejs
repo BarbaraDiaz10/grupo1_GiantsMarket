@@ -11,7 +11,8 @@
 </head>
 
 <body>
-    <form action="/index/edit/<%= product.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+    <form action="/productDetail/<%= product.id %>" method="PUT" enctype="multipart/form-data">
+
         <div class="form">
             <h1>Edita el producto</h1>
             <div class="group">
@@ -20,7 +21,7 @@
             </div>
 
             <div class="group">
-                <input type="Text" name="" value="<%= product.price%>" id="price" required><span class="bar"></span>
+                <input type="Text" name="" value="<%= product.price %>" id="price" required><span class="bar"></span>
                 <label for="">Precio</label>
             </div>
 
