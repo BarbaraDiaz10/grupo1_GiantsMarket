@@ -55,17 +55,10 @@ const productsController = {
         writeJson(products)
         res.redirect('/')
     },
-
-     
     edit: (req, res) => {
         let id = req.params.id
         let product = products.find(product => product.id == id)
-        res.render("editProduct", {product})
-    },
-    edit: (req, res) => {
-        let id = req.params.id
-        let product = products.find(product => product.id == id)
-        res.render("editProduct", {product})
+        res.render("editProduct", { product })
     },
     update: (req, res) => {
         let id = req.params.id
@@ -79,15 +72,15 @@ const productsController = {
 
         let productEdited = products.map(product => {
             if (product.id == productToEdit.id) {
-                return product = {...productToEdit}
+                return product = {...productToEdit }
             }
             return product
         })
 
-        fs.writeFileSync(productsFilePath, JSON.stringify$(productEdited));
+        fs.writeFileSync(productsFilePath, JSON.stringify(productEdited));
         res.redirect('/productDetail')
     },
-     
+
 
     destroy: (req, res) => {
         let productId = +req.params.id;
