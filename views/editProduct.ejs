@@ -17,7 +17,7 @@
                     </div>
 
                     <div class="igroup">
-                        <input type="Text" name="price" value="<%= product.price %>" id="price" required><span class="ibar"></span>
+                        <input type="number" name="price" value="<%= product.price %>" id="price" required><span class="ibar"></span>
                         <label for="price">Precio</label>
                     </div>
 
@@ -32,12 +32,36 @@
                     </div>
 
                     <div class="igroup">
+                        <textarea cols="1000" name="descriptionDetail" id="descriptionDetail"> <%= product.descriptionDetail%></textarea><span class="ibar"></span>
+                        <label for="descriptionDetail">Descripción detalle</label>
+                    </div>
+
+                    <div class="igroup">
+                        <input type="number" name="stock" value="<%= product.stock %>" id="stock" required><span class="ibar"></span>
+                        <label for="stock">Stock</label>
+                    </div>
+
+                    <div class="igroup">
                         <label>Categoria</label>
                         <select class="f-select" name="category" id="category">
-                <option value="" disabled> Selecciona una opcion</option>
-              <option value="unico" <%- product.category === 'unico' ? 'selected' : '' %>>Unico</option>
-				<option value="varios" <%- product.category === 'varios' ? 'selected' : '' %>>Varios</option>
-            </select>
+                            <option value="" disabled> Selecciona una opcion</option>
+                            <option value="unico" <%- product.category === 'unico' ? 'selected' : '' %>>Unico</option>
+                            <option value="varios" <%- product.category === 'varios' ? 'selected' : '' %>>Varios</option>
+                        </select>
+                    </div>
+
+                    <!-- HIDDEN-->
+                    <div class="igroup" hidden>
+                        <input type="Text" name="transferable" value="<%= product.transferable %>" id="transferable" ><span class="ibar"></span>
+                        <label for="transferable">transferable</label>
+                    </div>
+                    <div class="igroup" hidden>
+                        <input type="Text" name="discount" value="<%= product.discount %>" id="discount" ><span class="ibar"></span>
+                        <label for="discount">discount</label>
+                    </div>
+                    <div class="igroup" hidden>
+                        <input type="Text" name="shipping" value="<%= product.shipping %>" id="shipping" ><span class="ibar"></span>
+                        <label for="shipping">shipping</label>
                     </div>
 
                     <button type="submit" class="button">Guardar producto</button>

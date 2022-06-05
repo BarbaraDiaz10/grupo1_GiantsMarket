@@ -2,7 +2,7 @@ body {
     background-color: #eaeaea;
 }
 
-img {
+.card img {
     display: block;
     border: 0;
     width: 100%;
@@ -19,6 +19,7 @@ img {
 .card a {
     color: black;
     text-decoration: none;
+    width: 100%;
 }
 
 .card a:hover {
