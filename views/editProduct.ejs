@@ -7,12 +7,12 @@
     <body>
         <!--HEADER-->
         <%- include('partials/header')  %>
-            <form action="/productDetail/<%= product.id %>" method="POST" class="cont-form" enctype="enctype=multipart/form-data">
+            <form action="/productDetail/<%= product.id %>" method="POST" class="cont-form" enctype="multipart/form-data">
 
                 <div class="p-form">
                     <h1>Edita el producto</h1>
                     <div class="igroup">
-                        <input type="text" name="name" id="product_name" value="<%= product.name %>"><span class="ibar"></span>
+                        <input type="text" name="name" id="name" value="<%= product.name %>"><span class="ibar"></span>
                         <label for="name">Nombre del producto</label>
                     </div>
 
@@ -23,12 +23,11 @@
 
                     <div class="igroup">
                         <input type="file" name="image" value="<%= product.image%>" id="image"><span class="ibar"></span>
-                        <label for="file">Imagen</label>
-
+                        <label for="image">Imagen</label>
                     </div>
 
                     <div class="igroup">
-                        <textarea cols="200" id="descriptionDetail" rows="2"> <%= product.description%></textarea><span class="ibar"></span>
+                        <textarea cols="200" name="description" id="description"> <%= product.description%></textarea><span class="ibar"></span>
                         <label for="description">Descripción</label>
                     </div>
 

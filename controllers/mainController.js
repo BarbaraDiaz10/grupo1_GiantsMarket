@@ -8,20 +8,8 @@ const unique = products.filter(product => product.category == 'unico');
 
 const mainController = {
     index: (req, res) => {
-            res.render("index", { products })
-        } //,
-        // productDetail: (req, res) => {
-        //     res.render("productDetail", { several, unique })
-        // },
-        // productCart: (req, res) => {
-        //     res.render("productCart", { several, unique })
-        // },
-        // login: (req, res) => {
-        //     res.render("login")
-        // },
-        // register: (req, res) => {
-        //     res.render("register")
-        // }
+        res.render("index", { products })
+    }
 }
 
 module.exports = mainController

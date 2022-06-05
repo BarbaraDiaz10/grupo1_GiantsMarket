@@ -149,6 +149,13 @@ img {
     text-align: center;
 }
 
+.buttonDetail:hover {
+    background: linear-gradient(180deg, #B06AB3 0%, #B06AB3 49%, #4568DC 50%, #4568DC 100%);
+    background-size: 1px 100px;
+    background-position: 0 -50px;
+    transition: all .5s;
+}
+
 .delete {
     background: linear-gradient(to right, #ce3548, #4568DC);
 }

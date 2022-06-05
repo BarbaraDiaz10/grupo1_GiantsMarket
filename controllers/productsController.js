@@ -55,37 +55,42 @@ const productsController = {
 
     },
     edit: (req, res) => {
-        let id = +req.params.id;
-        let product = products.find(product => product.id === id);
-
-        res.render("editProduct", { product })
+        let id = req.params.id;
+        let product = products.find(i => i.id == id);
+        res.render("editProduct", { product });
     },
 
 
     update: (req, res) => {
-        let id = +req.params.id
-        let productToEdit = products.find(product => product.id === id)
-            //console.log('Got body:', req);
-            //console.log('Get Id:', id);
-        productToEdit = {
-            id: productToEdit.id,
+        let id = req.params.id;
+        let productEdit = products.find(i => i.id == id);
+        let image
+
+        if (req.files[0] != undefined) {
+            image = req.files[0].filename
+        } else {
+            image = productEdit.image //no funciona
+        }
+        //después de buscar el id que viene como parametro se procede a sobreescribirlo
+        //se iguala el id de esa posición del arreglo al id encontrado anteriormete
+        //con un objeto literal igualando todo a lo que tiene req.body(todo el formulario)
+        productEdit = {
+            id: productEdit.id,
             ...req.body,
-            image: productToEdit.image
+            image: image
         };
-
-        let productEdited = products.map(product => {
-            if (product.id === productToEdit.id) {
-                return product = {...productToEdit };
+        //luego se debe recorrer el arreglo completo y buscar el id que se está editando
+        // por ultimo igualar el id que se encontró a todo el objeto literal previamente editado 
+        let productEdited = products.map(i => {
+            if (i.id == productEdit.id) {
+                return i = {...productEdit }
             }
-            return product
-
-        })
-
-
-        //fs.writeFileSync(productsFilePath, JSON.stringify(productEdited));
-        writeJson(productEdited)
-        console.log(productEdited);
-        res.redirect('/productDetail/' + id)
+            return i;
+        });
+        //se usa este metodo para escribir en nuestro json en donde como primer parametro se le pasa
+        //el archivo json y el segundo hay que stringuifiarlo(para convertir) y pasarle lo que queremos editar 
+        fs.writeFileSync(productsFilePath, JSON.stringify(productEdited));
+        res.redirect('/productDetail/' + id);
     },
 
     destroy: (req, res) => {

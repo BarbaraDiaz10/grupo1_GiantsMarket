@@ -20,7 +20,7 @@ const upload = multer({ storage: storage })
     /********************************************************** */
     /* GET home page. */
 router.get('/', controller.index);
-router.get('/', productsController.index);
+
 router.get('/productDetail/:id/', productsController.productDetail);
 // router.get('/productCart', controller.productCart);
 // router.get('/login', controller.login);
