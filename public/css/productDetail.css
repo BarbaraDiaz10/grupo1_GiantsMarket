@@ -66,13 +66,14 @@ img {
     background: white;
     margin-bottom: 2em;
     flex: 0 1 15%;
-    height: 27.18rem;
+    height: 29rem;
 }
 
-.cartCard a {
+
+/* .cartCard a {
     color: black;
     text-decoration: none;
-}
+} */
 
 .cartCard a:hover {
     box-shadow: 3px 3px 8px hsl(0, 0%, 80%);
@@ -89,11 +90,11 @@ img {
 }
 
 .cartCard-content p {
-    font-size: 100%;
+    font-size: 80%;
 }
 
 .descriptionCard {
-    height: 27.18rem;
+    height: 29rem;
     overflow: auto;
     background: white;
     margin-bottom: 2em;
@@ -124,7 +125,11 @@ img {
     font-size: 100%;
 }
 
-button {
+.cartCard a {
+    padding-top: 10px;
+}
+
+.buttonDetail {
     font-family: 'roboto';
     background: #4568DC;
     /* fallback for old browsers */
@@ -138,12 +143,15 @@ button {
     margin: 10px auto;
     color: #fff;
     height: 40px;
-    font-size: 16px;
+    font-size: 13px;
     cursor: pointer;
+    text-decoration: none;
+    text-align: center;
 }
 
-
-
+.delete {
+    background: linear-gradient(to right, #ce3548, #4568DC);
+}
 
 @media (min-width: 768px) {
     .mainCards {

@@ -10,7 +10,7 @@
             <main>
                 <section class="mainCards">
                     <article class="productImage">
-                        <img src="/images/<%= product.image%>" alt="Torre Eiffel">
+                        <img src="/images/products/<%= product.image%>" alt="Torre Eiffel">
                     </article>
 
                     <article class="descriptionCard">
@@ -18,13 +18,13 @@
                         <div class="descriptionCard-content">
 
                             <h2>
-                                <%= product.name%>
+                                <%- product.name %>
                             </h2>
                             <h3>Precio: $
-                                <%= product.price%>
+                                <%- product.price %>
                             </h3>
                             <p>
-                                <%= product.descriptionDetail%>
+                                <%- product.descriptionDetail %>
                             </p>
                         </div>
                     </article>
@@ -33,20 +33,22 @@
                     <article class="cartCard">
                         <div class="cartCard-content">
                             <h2> $
-                                <%= product.price%>
+                                <%= product.price %>
                             </h2>
                             <p>
                                 <%= product.stock =="1"?"Este producto puede ser enviado":"Este producto no puede ser enviado" %>
                             </p>
                             <p>Stock:
-                                <%= product.stock%>
+                                <%= product.stock %>
                             </p>
-                            <button type="submit">Añadir al carrito </button>
-                            <button type="submit">Compra 1-click </button>
+                            <button type="submit" class="buttonDetail">Añadir al carrito </button>
+                            <button type="submit" class="buttonDetail">Compra 1-click </button>
                             <p><i class="fa fa-lock"></i> Transaccion segura</p>
                             <h5>Vendido por: GiantsMarket</h5>
-                            <button><a href="/views/edit/<%= product.id %>" class="button">EDITAR PRODUCTO</a></button>
-                            <button type="submit">Eliminar</button>
+                            <a href="/views/edit/<%= product.id %>" class="buttonDetail">Editar Producto</a>
+                            <form action="/delete/<%= product.id %>?_method=DELETE" method="POST">
+                                <button type="submit" class="buttonDetail delete">Eliminar Producto</button>
+                            </form>
                         </div>
                     </article>
                 </section>
@@ -57,7 +59,7 @@
             <%- include('partials/footer')  %>
 
 
-                <script src="main.js"></script>
+
     </body>
 
 </html>

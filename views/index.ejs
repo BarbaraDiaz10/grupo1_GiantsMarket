@@ -1,33 +1,40 @@
 <!DOCTYPE html>
 <html lang="es">
-    <!--HEAD-->
-    <%- include('partials/head')  %> 
-<body>
-    <!--HEADER-->
-    <%- include('partials/header')  %> 
+<!--HEAD-->
+<%- include('partials/head')  %>
 
-    <main>
-        <section class="cards">
+    <body>
+        <!--HEADER-->
+        <%- include('partials/header')  %>
 
-            <% unique.forEach(product => { %>
+            <main>
+                <section class="cards">
 
-            <article class="card">
-                <!-- <section class="product-box"> -->
-                    <a href="/productDetail/<%= product.id%>">
-                        <picture>
-                            <img src="/images/<%= product.image%>" class="thumbnail" alt="imagen de producto">
-                        </picture>
-                        <div class="card-content">
-                            <h2><%= product.name%></h2>
-                            <p><%= product.description%></p>
-                            <p>$ <%= product.price%></p>
-                        </div>
-                    </a>
-                <!-- </section> -->
-            </article>
-            <% }) %>
+                    <% products.forEach(product => { %>
 
-            <!-- <article class="card">
+                        <article class="card">
+                            <!-- <section class="product-box"> -->
+                            <a href="/productDetail/<%= product.id%>">
+                                <picture>
+                                    <img src="/images/products/<%= product.image%>" class="thumbnail" alt="imagen de producto">
+                                </picture>
+                                <div class="card-content">
+                                    <h2>
+                                        <%= product.name%>
+                                    </h2>
+                                    <p>
+                                        <%= product.description%>
+                                    </p>
+                                    <p>$
+                                        <%= product.price%>
+                                    </p>
+                                </div>
+                            </a>
+                            <!-- </section> -->
+                        </article>
+                        <% }) %>
+
+                            <!-- <article class="card">
                 <a href="/productDetail">
                     <picture>
                         <img class="thumbnail" src="/images/thumbnailTower.jpg" alt="Torre Eiffel">
@@ -82,12 +89,13 @@
                     </div>
                 </a>
             </article>-->
-        </section> 
-    </main>
-    <!--FOOTER-->
-    <%- include('partials/footer')  %> 
+                </section>
+            </main>
+            <!--FOOTER-->
+            <%- include('partials/footer')  %>
 
-        
-    <script src="main.js"></script>
-</body>
+
+
+    </body>
+
 </html>
