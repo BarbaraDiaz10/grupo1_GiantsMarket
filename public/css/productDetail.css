@@ -9,6 +9,11 @@ img {
     height: auto;
 }
 
+.productImage img{
+    height: 70%;
+    object-fit: contain;
+}
+
 .card-detail {
     background: white;
     margin-bottom: 2em;
@@ -45,6 +50,8 @@ img {
     margin: 20px;
 }
 
+
+
 .cards {
     display: flex;
     flex-wrap: wrap;
@@ -58,8 +65,6 @@ img {
 
 .productImage {
     flex: 0 1 50%;
-    padding-top: 3%;
-    padding-bottom: 3%;
 }
 
 .cartCard {
@@ -165,11 +170,27 @@ img {
         display: flex;
         flex-direction: column;
     }
+
+    .productImage {
+        flex: 0 1 30%;
+        width: 50%;
+    }
 }
 
 @media (min-width: 1200px) {
     .mainCards {
         display: flex;
         flex-direction: row;
+    }
+    .productImage {
+        flex: 0 1 40%;
+    }
+
+    .descriptionCard {
+        flex: 0 1 40%;
+    }
+
+    .cartCard {
+        flex: 0 1 17%;
     }
 }
