@@ -15,13 +15,7 @@ body {
     margin-top: 80px;
     font-family: 'Roboto';
     background-color: #1d1d1d;
-    /*background: #4568DC;
-    /* fallback for old browsers */
-    /*background: -webkit-linear-gradient(to right, #B06AB3, #4568DC);
-    /* Chrome 10-25, Safari 5.1-6 */
-    /*background: linear-gradient(to right, #B06AB3, #4568DC);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    height: 650px;
+    /* height: 650px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,6 +79,15 @@ label{
     left: 5px;
     top: 10px;
     transition: 0.5s ease all;
+}
+
+.labelLogin {
+    color: var(--colorTextos);
+    font-size: 16px;
+    position: absolute;
+    left: 5px;
+    top: 10px;
+    transition: 0.5s ease all;
     pointer-events: none;
 }
 
@@ -127,7 +130,7 @@ div.cbox1{
     margin-bottom: 50px;
     margin-left: 50px;
 }
-input#cbox1{
+input.remember_password{
     
     display: inline-block;
     width: 15px;
@@ -166,9 +169,42 @@ button:hover{
     
 }
 
-@media screen and (max-width:500px){
+/* @media screen and (max-width:500px){
     form{
         width: 80%;
     }
+} */
+
+.logoFooter{
+    display: none;
 }
 
+.logoHome{
+    width: 100px;
+    align-items: center;
+}
+
+
+@media (min-width: 769px) {
+    .logoFooter{
+        display: block;
+    }
+    .logoHome{
+        display: none;
+    }
+    body{
+        justify-content: space-around;
+    }
+}
+
+@media (min-width: 1200px) {
+    .logoFooter{
+        display: block;
+    }
+    .logoHome{
+        display: none;
+    }
+    body{
+        justify-content: space-around;
+    }
+}
