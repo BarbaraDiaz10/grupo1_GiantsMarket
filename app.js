@@ -20,7 +20,8 @@ app.use(cookieParser());
 app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
 app.use(express.static(path.resolve('public')));
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/', usersRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
