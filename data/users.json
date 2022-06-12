@@ -3,37 +3,42 @@
         "id": 1,
         "first_name": "Cristal",
         "last_name": "Ogilby",
-        "email": "cogilby0@rediff.com",
+        "email": "ayuda@gmail.com",
         "gender": "Female",
         "date": "4/24/2086",
-        "password": "8IDArddOJagX"
+        "password": "12345",
+        "rol": "administrador"
+
     },
     {
         "id": 2,
         "first_name": "Gertrude",
         "last_name": "Championnet",
-        "email": "gchampionnet1@google.ca",
+        "email": "ayuda1@gmail.com",
         "gender": "Female",
         "date": "11/10/1984",
-        "password": "skeuSwU"
+        "password": "12345",
+        "rol": "usuario"
     },
     {
         "id": 3,
         "first_name": "Yoshi",
         "last_name": "Impy",
-        "email": "yimpy2@51.la",
+        "email": "sos@gmail.com",
         "gender": "Female",
         "date": "1/5/2057",
-        "password": "Mfp1ISQZ"
+        "password": "12345",
+        "rol": "administrador"
     },
     {
         "id": 4,
         "first_name": "Shay",
         "last_name": "Bickley",
-        "email": "sbickley3@washington.edu",
+        "email": "ayudasos@gmail.com",
         "gender": "Female",
         "date": "5/1/2044",
-        "password": "77qUE8Yz"
+        "password": "12345",
+        "rol": "usuario"
     },
     {
         "id": 5,
@@ -42,7 +47,8 @@
         "email": "clavis4@epa.gov",
         "gender": "Male",
         "date": "9/21/1997",
-        "password": "hVaIdVCuDLnn"
+        "password": "12345",
+        "rol": "administrador"
     },
     {
         "id": 6,
