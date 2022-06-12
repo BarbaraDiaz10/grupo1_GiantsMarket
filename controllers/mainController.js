@@ -9,6 +9,15 @@ const unique = products.filter(product => product.category == 'unico');
 const mainController = {
     index: (req, res) => {
         res.render("index", { products })
+    },
+
+    login : (req, res) => {
+        res.render("login")
+    },
+
+    register :(req, res)=> {
+        res.render ("register")
+
     }
 }
 
