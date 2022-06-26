@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,57 +9,80 @@
     <link rel="stylesheet" href="estilos.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <a href="/"><img class="logoFooter" src="/images/gm-white.png" alt="logo"></a>
-    
-    <form action="" method="POST" id="form">
+
+    <form type="" action="/register" method="POST">
         <div class="form">
             <a href="/"><img class="logoHome" src="/images/gm-black.png" alt="logo"></a>
             <h1>Registro</h1>
             <div class="group">
-                <input type="text" name="first_name" id="first_name" minlength="3" maxlength="15" required><span class="bar"></span>
+                <input type="text" name="first_name" id="first_name" minlength="3" maxlength="15"><span class="bar"></span>
                 <label class="labelLogin" for="first_name">Nombre</label>
+                <p class="error">
+                    <%= (locals.errors && errors.first_name ? errors.first_name.msg : null) %>
+                </p>
             </div>
 
             <div class="group">
-                <input type="text" name="lastname" id="lastname" minlength="3" maxlength="20" required><span class="bar"></span>
+                <input type="text" name="lastname" id="lastname" minlength="3" maxlength="20"><span class="bar"></span>
                 <label class="labelLogin" for="lastname">Apellido</label>
+                <p class="error">
+                    <%= (locals.errors && errors.lastname ? errors.lastname.msg : null) %>
+                </p>
             </div>
 
             <div class="group">
-                <input type="email" name="email" id="email" required><span class="bar"></span>
+                <input type="text" name="email" id="email"><span class="bar"></span>
                 <label class="labelLogin" for="email">Email</label>
+                <p class="error">
+                    <%= (locals.errors && errors.email ? errors.email.msg : null) %>
+                </p>
             </div>
             <div class="group">
-                <input type="password" name="password" id="password" minlength="8" maxlength="8" required><span class="bar"></span>
+                <input type="password" name="password" id="password" minlength="8" maxlength="8"><span class="bar"></span>
                 <label class="labelLogin" for="password">Password</label>
+                <p class="error">
+                    <%= (locals.errors && errors.password ? errors.password.msg : null) %>
+                </p>
             </div>
 
             <div class="group">
                 <input type="date" id="date" name="date" value="">
+                <p class="error">
+                    <%= (locals.errors && errors.date ? errors.date.msg : null) %>
+                </p>
             </div>
 
             <div class="group">
-              <label>Selecciona tu sexo</label> 
-              <select  class="select1" name="gender" id="gender">
+                <label>Selecciona tu sexo</label>
+                <select class="select1" name="gender" id="gender">
                 <option value="" disabled selected>Selecciona una opcion</option>
                 <option value="mujer">Mujer</option>
                 <option value="hombre">Hombre</option>
                 <option value="hombre">Otro</option>
             </select>
+                <p class="error">
+                    <%= (locals.errors && errors.gender ? errors.gender.msg : null) %>
+                </p>
             </div>
             <div class="group">
-                <label>Selecciona tu rol</label> 
-                <select  class="select1" name="rol" id="rol">
+                <label>Selecciona tu rol</label>
+                <select class="select1" name="rol" id="rol">
                     <option value="" disabled selected>Selecciona una opcion</option>
                     <option value="admin">Administrador</option>
                     <option value="usuario">Usuario</option>
               </select>
-              </div>
+                <p class="error">
+                    <%= (locals.errors && errors.rol ? errors.rol.msg : null) %>
+                </p>
+            </div>
 
             <button type="submit">Suscribirte</button>
         </div>
     </form>
     <script src=""></script>
 </body>
+
 </html>

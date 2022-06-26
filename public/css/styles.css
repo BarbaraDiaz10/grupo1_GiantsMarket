@@ -2,7 +2,6 @@
     --colorTextos: #49454567;
 }
 
-
 *,
 ::before,
 ::after {
@@ -21,38 +20,40 @@ body {
     align-items: center;
 }
 
-h1{
+h1 {
     text-align: center;
     font-weight: 700;
 }
 
-form{
+form {
     background: #fff;
     padding: 40px 0;
     box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.8);
     border-radius: 10px;
 }
 
-.form{
+.error {
+    color: red;
+}
+
+.form {
     width: 100%;
     margin: auto;
 }
 
-form .group{
+form .group {
     position: relative;
-    margin: 45px ;
+    margin: 45px;
 }
-.select1{
+
+.select1 {
     margin-top: 10px;
     margin-right: 10px;
     margin-bottom: 2px;
     margin-left: 150px;
 }
 
-
-
-
-input{
+input {
     background: none;
     color: #0a0909;
     font-size: 18px;
@@ -63,16 +64,17 @@ input{
     border-bottom: 1px solid var(--colorTextos);
 }
 
-input:focus{ 
+input:focus {
     outline: none;
     color: #5e5d5d;
 }
 
-.user{
+.user {
     display: flex;
     flex-direction: row;
 }
-label{
+
+label {
     color: var(--colorTextos);
     font-size: 16px;
     position: absolute;
@@ -92,23 +94,24 @@ label{
 }
 
 input:focus~label,
-input:valid~label{
+input:valid~label {
     top: -14px;
     font-size: 12px;
     color: #2196f3;
 }
 
-a{
-    margin-left: 15px;;
+a {
+    margin-left: 15px;
+    ;
 }
 
-.bar{
+.bar {
     position: relative;
     display: block;
     width: 100%;
 }
 
-.bar::before{
+.bar::before {
     content: "";
     height: 2px;
     width: 0%;
@@ -119,19 +122,19 @@ a{
     left: 0;
 }
 
-input:focus~.bar::before{
+input:focus~.bar::before {
     width: 100%;
 }
 
-div.cbox1{
+div.cbox1 {
     position: relative;
     margin-top: 10px;
     margin-right: 10px;
     margin-bottom: 50px;
     margin-left: 50px;
 }
-input.remember_password{
-    
+
+input.remember_password {
     display: inline-block;
     width: 15px;
     height: 15px;
@@ -139,9 +142,7 @@ input.remember_password{
     background-size: cover;
 }
 
-
-
-button{
+button {
     font-family: 'roboto';
     background: #4568DC;
     /* fallback for old browsers */
@@ -159,15 +160,13 @@ button{
     cursor: pointer;
 }
 
-button:hover{
-
+button:hover {
     background: linear-gradient(180deg, #B06AB3 0%, #B06AB3 49%, #4568DC 50%, #4568DC 100%);
     background-size: 1px 100px;
     background-position: 0 -50px;
     transition: all .5s;
-
-    
 }
+
 
 /* @media screen and (max-width:500px){
     form{
@@ -175,36 +174,35 @@ button:hover{
     }
 } */
 
-.logoFooter{
+.logoFooter {
     display: none;
 }
 
-.logoHome{
+.logoHome {
     width: 100px;
     align-items: center;
 }
 
-
 @media (min-width: 769px) {
-    .logoFooter{
+    .logoFooter {
         display: block;
     }
-    .logoHome{
+    .logoHome {
         display: none;
     }
-    body{
+    body {
         justify-content: space-around;
     }
 }
 
 @media (min-width: 1200px) {
-    .logoFooter{
+    .logoFooter {
         display: block;
     }
-    .logoHome{
+    .logoHome {
         display: none;
     }
-    body{
+    body {
         justify-content: space-around;
     }
 }

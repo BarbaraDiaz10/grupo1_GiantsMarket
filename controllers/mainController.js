@@ -4,20 +4,15 @@ const productsFilePath = path.join(__dirname, '../data/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const several = products.filter(product => product.category == 'varios');
 const unique = products.filter(product => product.category == 'unico');
-
+const { validationResult } = require('express-validator');
 
 const mainController = {
     index: (req, res) => {
         res.render("index", { products })
     },
 
-    login : (req, res) => {
-        res.render("login")
-    },
-
-    register :(req, res)=> {
-        res.render ("register")
-
+    admin: (req, res) => {
+        res.send("Hola admin " + req.query.user)
     }
 }
 
