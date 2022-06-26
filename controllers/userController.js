@@ -7,12 +7,6 @@ const { validationResult } = require('express-validator');
 const userController = {
     index: (req, res) => {
         res.render("index", { products })
-
-        if (req.session.form) {
-            console.log("aqui");
-            let data = req.session.form
-            res.render("index", { data: data });
-        }
     },
 
     login: (req, res) => {
@@ -52,7 +46,6 @@ const userController = {
         req.session.form = {}
         req.session.form.email = req.body.email;
         req.session.form.password = req.body.password;
-
         res.redirect("/");
     }
 }
