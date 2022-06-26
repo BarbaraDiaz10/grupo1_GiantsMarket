@@ -13,7 +13,7 @@
 <body>
     <a href="/"><img class="logoFooter" src="/images/gm-white.png" alt="logo"></a>
 
-    <form type="" action="/register" method="POST">
+    <form action="/register" method="POST" id="form" class="cont-form" enctype="multipart/form-data">
         <div class="form">
             <a href="/"><img class="logoHome" src="/images/gm-black.png" alt="logo"></a>
             <h1>Registro</h1>
@@ -77,6 +77,11 @@
                 <p class="error">
                     <%= (locals.errors && errors.rol ? errors.rol.msg : null) %>
                 </p>
+            </div>
+
+            <div class="igroup">
+                <input type="file" name="image" id="image"><span class="ibar"></span>
+                <label for="image">Imagen</label>
             </div>
 
             <button type="submit">Suscribirte</button>
