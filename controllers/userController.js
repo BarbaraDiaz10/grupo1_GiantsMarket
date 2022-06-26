@@ -23,7 +23,15 @@ const userController = {
     },
 
     store: (req, res) => {
-        /***********************PARA LAS IMAGENES ***********************/
+        const resultValidation = validationResult(req)
+
+        if (resultValidation.errors.length > 0) {
+            res.render("register", {
+                errors: resultValidation.mapped(),
+            })
+        }
+
+        
         let image
    
 
