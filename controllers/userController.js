@@ -5,6 +5,7 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const usersFilePath = path.join(__dirname, '../data/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const { validationResult } = require('express-validator');
+const session = require('express-session');
 
 const userController = {
     index: (req, res) => {
@@ -83,8 +84,24 @@ const userController = {
         req.session.form.email = req.body.email;
         req.session.form.password = req.body.password;
 
+
+        // let sessionEmail = req.body.email
+        // let sessionPassword = req.body.password
+        // const validationLogin = users.find(user => user.email === sessionEmail) 
+            
+        //     if(sessionEmail === validationLogin && sessionPassword === validationLogin){
+        //         res.redirect("/", {users});
+        //     }else{
+        //         res.send("Email o contraseña invalida")
+        //     }
+                
+
         res.redirect("/");
+
+
     }
+
+    
 }
 
 module.exports = userController
