@@ -6,6 +6,7 @@ const usersFilePath = path.join(__dirname, '../data/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const { validationResult } = require('express-validator');
 const session = require('express-session');
+const bcrypt = require('bcryptjs');
 
 const userController = {
     index: (req, res) => {
@@ -47,6 +48,7 @@ const userController = {
            
             id: users[users.length - 1].id + 1,
             ...req.body,
+            password: bcrypt.hashSync('password', 10),
             image: image //PARA LAS IMAGENES
         }
         users.push(newUsers);
