@@ -17,11 +17,16 @@
             <a href="/"><img class="logoHome" src="/images/gm-black.png" alt="logo"></a>
             <h1>Login</h1>
             <div class="group">
-                <input type="email" name="email" id="email"><span class="bar"></span>
-                <label class="labelLogin" for="email">Email</label>
-                <p class="error">
-                    <%= (locals.errors && errors.email ? errors.email.msg : null) %>
-                </p>
+                <% if(typeof msg != 'undefined') {%>
+                    <p class="error">
+                        <%=msg %>
+                    </p>
+                    <%  } %>
+                        <input type="email" name="email" id="email"><span class="bar"></span>
+                        <label class="labelLogin" for="email">Email</label>
+                        <p class="error">
+                            <%= (locals.errors && errors.email ? errors.email.msg : null) %>
+                        </p>
             </div>
             <div class="group">
                 <input type="password" name="password" id="password" maxlength="10"><span class="bar"></span>
@@ -34,8 +39,6 @@
             <div class="cbox1">
                 <label for="remember_password"><input type="checkbox" class="remember_password" id="remember_password" name="remember_password" value=""> Recordar password</label><br>
             </div>
-
-
 
             <button type="submit">Ingresar </button>
         </div>

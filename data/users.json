@@ -1,12 +1,11 @@
-[
-    {
+[{
         "id": 1,
         "first_name": "Cristal",
         "last_name": "Ogilby",
         "email": "ayuda@gmail.com",
         "gender": "Female",
         "date": "4/24/2086",
-        "password": "12345",
+        "password": "12345678",
         "rol": "administrador"
 
     },
@@ -17,7 +16,7 @@
         "email": "ayuda1@gmail.com",
         "gender": "Female",
         "date": "11/10/1984",
-        "password": "12345",
+        "password": "12345678",
         "rol": "usuario"
     },
     {
@@ -27,7 +26,7 @@
         "email": "sos@gmail.com",
         "gender": "Female",
         "date": "1/5/2057",
-        "password": "12345",
+        "password": "12345678",
         "rol": "administrador"
     },
     {
@@ -37,7 +36,7 @@
         "email": "ayudasos@gmail.com",
         "gender": "Female",
         "date": "5/1/2044",
-        "password": "12345",
+        "password": "12345678",
         "rol": "usuario"
     },
     {
@@ -47,7 +46,7 @@
         "email": "clavis4@epa.gov",
         "gender": "Male",
         "date": "9/21/1997",
-        "password": "12345",
+        "password": "12345678",
         "rol": "administrador"
     },
     {
@@ -66,7 +65,7 @@
         "email": "ktims6@hatena.ne.jp",
         "gender": "Female",
         "date": "7/1/2010",
-        "password": "wf5wbn"
+        "password": "wf5wbdn"
     },
     {
         "id": 8,
@@ -75,7 +74,7 @@
         "email": "cgallichan7@google.fr",
         "gender": "Male",
         "date": "5/3/1966",
-        "password": "UEVh87q"
+        "password": "UEdVh87q"
     },
     {
         "id": 9,
@@ -84,7 +83,7 @@
         "email": "dbarreau8@hhs.gov",
         "gender": "Male",
         "date": "1/24/1985",
-        "password": "ucCmjfr3mYuQ"
+        "password": "12345678"
     },
     {
         "id": 10,
@@ -93,6 +92,6 @@
         "email": "sslateford9@foxnews.com",
         "gender": "Male",
         "date": "8/3/1951",
-        "password": "e5Atwn3UN"
+        "password": "abc42136"
     }
 ]
