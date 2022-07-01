@@ -21,8 +21,12 @@
                     <p class="error">
                         <%=msg %>
                     </p>
-                    <%  } %>
-                        <input type="email" name="email" id="email"><span class="bar"></span>
+                    <%  } 
+                    <div class="group">
+                        <% if(typeof email != 'undefined') {%>
+                            <input type="email" name="email" id="email" value="<%= email ? email:null %>"><span class="bar"></span>
+                            <%  } %>
+                       
                         <label class="labelLogin" for="email">Email</label>
                         <p class="error">
                             <%= (locals.errors && errors.email ? errors.email.msg : null) %>
@@ -37,7 +41,7 @@
             </div>
 
             <div class="cbox1">
-                <label for="remember_password"><input type="checkbox" class="remember_password" id="remember_password" name="remember_password" value=""> Recordar password</label><br>
+                <label for="remember_password"><input type="checkbox" class="remember_password" id="remember_password" name="remember_password"> Recordar password</label><br>
             </div>
 
             <button type="submit">Ingresar </button>
