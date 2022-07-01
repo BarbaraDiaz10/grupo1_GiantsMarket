@@ -16,6 +16,12 @@ const userController = {
 
     login: (req, res) => {
         res.render("login")
+        if (req.session.form.remember_password == 'on') {
+            res.cookie('email', req.body.email, { maxAge: (1000 * 1000) * 90 })
+            const email = req.session.form.email
+            res.render("login", { email: email })
+
+        }
     },
 
     register: (req, res) => {
@@ -75,39 +81,27 @@ const userController = {
         req.session.form.email = req.body.email;
         req.session.form.password = req.body.password;
         req.session.form.remember_password = req.body.remember_password;
-        console.log(req.session.form)
-        if(req.session.form.remember_password == 'on') {
-            res.cookie('email', req.body.email, { maxAge: (1000 * 1000) * 90 })
-            res.render('login', {email : req.body.email})
-            
-        }
-
-        
 
         let sessionEmail = req.session.form.email
         let sessionPassword = req.session.form.password
 
-        let validationLogin = users.find(user => user.email == sessionEmail)
-        if (validationLogin.email == sessionEmail && validationLogin.password == sessionPassword) {
+        let validationLogin = users.find(user => user.email === sessionEmail && user.password === sessionPassword)
+        if (validationLogin) {
             res.redirect("/");
         } else {
             const msg = "Email o contraseña invalida"
             res.render("login", { msg: msg })
         }
 
-        
-        
+
+
     },
-        // cookieRemember:{
 
-        //      let cookie = req.session.
-        //  },
-
-        logout: (req, res) => {
-            res.clearCookie('email');
-            req.session.destroy();
-            return res.redirect('/');
-        }
+    logout: (req, res) => {
+        res.clearCookie('email');
+        req.session.destroy();
+        return res.redirect('/');
+    }
 
 }
 
