@@ -69,13 +69,13 @@
             </div>
             <div class="group">
                 <label>Selecciona tu rol</label>
-                <select class="select1" name="rol" id="rol">
+                <select class="select1" name="admin" id="admin">
                     <option value="" disabled selected>Selecciona una opcion</option>
-                    <option value="admin">Administrador</option>
-                    <option value="usuario">Usuario</option>
+                    <option [ngValue]="true">Administrador</option>
+                    <option [ngValue]="false">Usuario</option>
               </select>
                 <p class="error">
-                    <%= (locals.errors && errors.rol ? errors.rol.msg : null) %>
+                    <%= (locals.errors && errors.admin ? errors.admin.msg : null) %>
                 </p>
             </div>
 

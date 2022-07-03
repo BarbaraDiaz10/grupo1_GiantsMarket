@@ -9,7 +9,7 @@ const validationRegister = [
     .isLength({ min: 8, max: 10 }).withMessage("Debe ingresar un formato de email válido"),
     body('date').notEmpty().withMessage("La fecha no puede ser vacia"),
     body('gender').notEmpty().withMessage("El género no puede ser vacio"),
-    body('rol').notEmpty().withMessage("El rol no puede ser vacio")
+    body('admin').notEmpty().withMessage("El rol no puede ser vacio")
 
 
 ]
