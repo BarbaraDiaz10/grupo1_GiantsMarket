@@ -1,3 +1,47 @@
+
+-- SPRINT 6. --
+
+Start doing:
+1.Documentarnos sobre temas de base de datos y sequelize.
+2.Actualizar las actividades del tablero.
+3.Definir el modelo de datos a trabajar.
+4.Guardar los registros o datos en las tablas correspondientes.
+
+More of:
+1. Utilizar temas dados en clase.
+
+Keep doing:
+1. Homologar las ideas del equipo.
+2. Mantener compromiso de cada tarea del equipo y entrega en el tiempo asignado.
+
+Less of:
+1. Aplicar malas practicas.
+
+Stop Doing:
+1. Dejar las cosas para última hora.
+
+
+-- SPRINT 5. --
+
+Start doing:
+1.Documentarnos sobre temas de session y cookies.
+2.Actualizar las actividades del tablero.
+3.Definir los métodos del userController.
+4.Registrar los usuarios en el JSON de users.
+
+More of:
+1. Utilizar temas dados en clase.
+
+Keep doing:
+1. Homologar las ideas del equipo.
+2. Mantener compromiso de cada tarea del equipo y entrega en el tiempo asignado.
+
+Less of:
+1. Aplicar malas practicas.
+
+Stop Doing:
+1. Dejar las cosas para última hora.
+
 -- SPRINT 4. --
 
 Start doing:
