@@ -18,7 +18,9 @@
     "method-override": "^3.0.0",
     "morgan": "~1.9.1",
     "multer": "^1.4.5-lts.1",
+    "mysql2": "^2.3.3",
     "nodemon": "^2.0.16",
+    "sequelize": "^6.21.3",
     "validator": "^13.7.0"
   },
   "description": "Nuestro producto va enfocado a un mercado con alto poder adquisitivo. En el que puedas obtener lo que menos te imaginas de manera fácil y rápida.\r Nuestro target va dirigido a esos clientes con gustos excéntricos que no son comercializados en ningún otro sitio.",

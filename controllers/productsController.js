@@ -5,8 +5,8 @@ const path = require('path');
 const productsFilePath = (path.join(__dirname, '../data/products.json'));
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const writeJson = dataBase => fs.writeFileSync(productsFilePath, JSON.stringify(dataBase), 'utf-8'); //Esta función solo escribe en el JSON
-
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const db = require('../database/models/index');
 
 const productsController = {
     index: (req, res) => {
@@ -17,13 +17,20 @@ const productsController = {
     },
 
     productDetail: (req, res) => {
-        let productId = +req.params.id;
-        let product = products.find(product => product.id === productId)
+        db.Product.findByPk(req.params.id)
+            .then(product => {
+                res.render('productDetail', {
+                    product,
+                    toThousand
+                })
+            })
+            // let productId = +req.params.id;
+            // let product = products.find(product => product.id === productId)
 
-        res.render('productDetail', {
-            product,
-            toThousand
-        })
+        // res.render('productDetail', {
+        //     product,
+        //     toThousand
+        // })
     },
     productCart: (req, res) => {
         res.render("productCart")

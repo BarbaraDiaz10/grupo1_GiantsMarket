@@ -71,80 +71,53 @@ const userController = {
             })
         }
     },
-    // userLogin: (req, res) => {
-    //     const resultValidation = validationResult(req)
-    //     if (resultValidation.errors.length > 0) {
-    //         res.render("login", {
-    //             errors: resultValidation.mapped(),
-    //         })
-    //     }
-    //     req.session.form = {}
-    //     req.session.form.email = req.body.email;
-    //     req.session.form.password = req.body.password;
-    //     req.session.form.remember_password = req.body.remember_password;
-
-    //     let sessionEmail = req.session.form.email
-    //     let sessionPassword = req.session.form.password
-
-    //     let validationLogin = users.find(user => user.email === sessionEmail && user.password === sessionPassword)
-    //     if (validationLogin) {
-    //         res.redirect("/");
-    //     } else {
-    //         const msg = "Email o contraseña invalida"
-    //         res.render("login", { msg: msg })
-    //     }
-
-
-
-    // },
-
 
     userLogin: (req, res) => {
 
-		let resultValidation = validationResult(req)
-		let userToLogin = ModelUsers.findField('email', req.body.email);
-		
-		if (!resultValidation.errors.length > 0){ 
-		if(userToLogin) {
-            //REVISAR
-			// let password = req.body.password == userToLogin.password;
-             let password = req.body.password;
-			if (password) {
-            //REVISAR
-				// userData = userToLogin
-				// delete userToLogin.password;
-				// req.session.userLogged = userData;
+        let resultValidation = validationResult(req)
+        let userToLogin = ModelUsers.findField('email', req.body.email);
 
-				if(req.body.remember) {
-					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 1000) * 90 })
-				}
+        if (!resultValidation.errors.length > 0) {
+            if (userToLogin) {
+                //REVISAR
+                // let password = req.body.password == userToLogin.password;
+                let password = req.body.password;
+                if (password) {
+                    //REVISAR
+                    // userData = userToLogin
+                    // delete userToLogin.password;
+                    // req.session.userLogged = userData;
 
-				return res.redirect('/');
-			} 
-				return res.render('login', {
-				errors: {
-					email: {
-						msg: 'Los datos ingresados son incorrectos'
-					}
-				}
-			});
-		} else {
-			return res.render('login', {
-				errors: {
-					email: {
-						msg: 'No se encontro el correo ingresado'
-					}
-				}
-			})
-		}
-	} else {
-	
-	return res.render('login', {
-		errors: resultValidation.mapped(),
-	})
-}
+                    if (req.body.remember) {
+                        res.cookie('userEmail', req.body.email, { maxAge: (1000 * 1000) * 90 })
+                    }
 
-},
+                    return res.redirect('/');
+                }
+                return res.render('login', {
+                    errors: {
+                        email: {
+                            msg: 'Los datos ingresados son incorrectos'
+                        }
+                    }
+                });
+            } else {
+                return res.render('login', {
+                    errors: {
+                        email: {
+                            msg: 'No se encontro el correo ingresado'
+                        }
+                    }
+                })
+            }
+        } else {
+
+            return res.render('login', {
+                errors: resultValidation.mapped(),
+            })
+        }
+
+    },
 
     logout: (req, res) => {
         res.clearCookie('email');
