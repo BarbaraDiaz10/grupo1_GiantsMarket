@@ -61,7 +61,7 @@
                 <option value="" disabled selected>Selecciona una opcion</option>
                 <option value="mujer">Mujer</option>
                 <option value="hombre">Hombre</option>
-                <option value="hombre">Otro</option>
+                <option value="otro">Otro</option>
             </select>
                 <p class="error">
                     <%= (locals.errors && errors.gender ? errors.gender.msg : null) %>
@@ -71,8 +71,8 @@
                 <label>Selecciona tu rol</label>
                 <select class="select1" name="admin" id="admin">
                     <option value="" disabled selected>Selecciona una opcion</option>
-                    <option [ngValue]="true">Administrador</option>
-                    <option [ngValue]="false">Usuario</option>
+                    <option [ngValue]="1">Administrador</option>
+                    <option [ngValue]="0">Usuario</option>
               </select>
                 <p class="error">
                     <%= (locals.errors && errors.admin ? errors.admin.msg : null) %>
