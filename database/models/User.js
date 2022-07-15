@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
         role_id: {
             type: DataTypes.INTEGER(10),
             allowNull: false,
-            foreignKey: true /*preguntar si es correcto*/
+            foreignKey: true
         },
         first_name: {
             type: DataTypes.STRING(30),
@@ -41,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
     };
     let config = {
 
-        tableName: users,
+        // tableName: users,
         timestamps: false,
         /*revisar*/
         underscored: true

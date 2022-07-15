@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
         category_id: {
             type: DataTypes.INTEGER(10),
             allowNull: false,
-            foreignKey: true /*preguntar si es correcto*/
+            foreignKey: true
         },
         name: {
             type: DataTypes.STRING(50),
@@ -53,7 +53,7 @@ module.exports = (sequelize, DataTypes) => {
     };
     let config = {
 
-        tableName: products,
+        // tableName: products,
         timestamps: false,
         /*revisar*/
         underscored: true

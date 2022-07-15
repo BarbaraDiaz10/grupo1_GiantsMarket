@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     };
     let config = {
 
-        tableName: roles,
+        // tableName: roles,
         timestamps: false,
         /*revisar*/
         underscored: true
