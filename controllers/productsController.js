@@ -8,6 +8,7 @@ const writeJson = dataBase => fs.writeFileSync(productsFilePath, JSON.stringify(
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const db = require('../database/models/index');
 
+
 const productsController = {
     index: (req, res) => {
         res.render('products', {
@@ -38,6 +39,11 @@ const productsController = {
 
     create: (req, res) => { //Solo necesitamos pasarle la vista renderizada para que la rellene, es por get
         res.render('createProduct')
+        /*llamar al crear
+        db.product.findAll()
+        .then((allCategories)=>{
+            res.render('createProduct')
+        })*/
     },
 
     store: (req, res) => {
@@ -60,11 +66,33 @@ const productsController = {
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ''));
         res.redirect('/');
 
+        /* crear
+        const { name, description,description_detail, discount, image} = req.body
+        db.Product.create({
+            name,
+            description,
+            description_detail, 
+            discount, 
+            image
+        }).then (product =>{
+            res.redirect('/');
+        })*/
+
     },
     edit: (req, res) => {
         let id = req.params.id;
         let product = products.find(i => i.id == id);
         res.render("editProduct", { product });
+
+        /* Llamado al editar
+        let id = db.Product.findByPk (product_id, {include: ['category']})
+        let products = db.Category.findAll()
+        Promise.all ([id,product])
+            .then(([Product, allCategories])=>{
+                res.render("editProduct", {Product, allCategories})
+            })
+        }
+        .catch(err =>res.send(err));*/
     },
 
 
@@ -98,6 +126,18 @@ const productsController = {
         //el archivo json y el segundo hay que stringuifiarlo(para convertir) y pasarle lo que queremos editar 
         fs.writeFileSync(productsFilePath, JSON.stringify(productEdited));
         res.redirect('/productDetail/' + id);
+
+      /* Editar
+      let id = req.params.id;
+      db.product.update ({...req.body},{
+        where:{
+            product_id : id
+        }
+      }) .then(()=>{
+        res.redirect('/productDetail/' + id);
+      }).catch(err=>{res.send(err)});*/
+
+
     },
 
     destroy: (req, res) => {
@@ -105,6 +145,15 @@ const productsController = {
         let productDelete = products.filter(i => i.id != id);
         fs.writeFileSync(productsFilePath, JSON.stringify(productDelete));
         res.redirect('/');
+
+        /* Eliminar
+        db.Product.destroy({
+            where : {
+                product_id : +req.params.id
+            }
+        }) .then (()=>{
+            res.redirect('/')
+        }).catch(err=>res.send(err))*/
     },
 
 }
