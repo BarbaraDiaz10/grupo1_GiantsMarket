@@ -1,3 +1,5 @@
+const { user } = require("../../controllers/userController");
+
 module.exports = (sequelize, DataTypes) => {
 
     let alias = 'User'
@@ -48,5 +50,20 @@ module.exports = (sequelize, DataTypes) => {
 
     }
     const User = sequelize.define(alias, cols, config)
+    User.associate = models => {
+        User.belongsTo(models.rol,{
+            as : "roles",
+            foreignKey:'role_id',
+            timestamps : false
+        })
+        User.associate = models =>{
+            user.belongsToMany(models.product_user,{
+                as: 'product_users',
+                foreignKey : 'user_id',
+                timestamps: false
+
+            })
+        }
+    }
     return User
 }

@@ -1,3 +1,5 @@
+const { productCart } = require("../../controllers/productsController");
+
 module.exports = (sequelize, DataTypes) => {
 
     let alias = 'Product'
@@ -59,6 +61,21 @@ module.exports = (sequelize, DataTypes) => {
         underscored: true
 
     }
-    const Product = sequelize.define(alias, cols, config)
+    const Product = sequelize.define(alias, cols, config);
+    Product.associate = models => {
+        Product.belongsTo(models.category,{
+            as : "categories",
+            foreignKey:'category_id',
+            timestamps : false
+        })
+
+        Product.associate = models => {
+            Product.belongsToMany(models.productUser,{
+                as : "productUsers",
+                foreignKey:'product_user_id',
+                timestamps : false
+            })
+        }
+    }
     return Product
 }
