@@ -24,7 +24,7 @@ CREATE TABLE users (
 `role_id` INT(10) NOT NULL,
 `image` varchar(100) NOT NULL,
 
-foreign key (`role_id`) references `roles` (`id`)
+foreign key (`role_id`) references `roles` (`role_id`)
 );
 
 DROP TABLE IF EXISTS `products`;
@@ -41,7 +41,7 @@ CREATE TABLE `products` (
 `shipping` int(10) NOT NULL,
 `stock` int(10) NOT NULL,
 
-foreign key (`category_id`) references `category` (`id`)
+foreign key (`category_id`) references `category` (`category_id`)
 );
 
 DROP TABLE IF EXISTS `product_user`;
@@ -49,6 +49,6 @@ CREATE TABLE `product_user` (
 `product_user_id` INT(10) PRIMARY KEY NOT NULL AUTO_INCREMENT,
 `user_id` INT(10) NOT NULL,
 `product_id` INT(10) NOT NULL,
-foreign key (`user_id`) references `users` (`id`),
-foreign key (`product_id`) references `products` (`id`)
+foreign key (`user_id`) references `users` (`user_id`),
+foreign key (`product_id`) references `products` (`product_id`)
 );
