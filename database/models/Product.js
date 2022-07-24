@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     let alias = 'Product'
 
     let cols = {
-        id: {
+        product_id: {
             type: DataTypes.INTEGER(10),
             allowNull: false,
             primaryKey: true,
@@ -62,7 +62,7 @@ module.exports = (sequelize, DataTypes) => {
 
     }
     const Product = sequelize.define(alias, cols, config);
-    Product.associate = models => {
+    /*Product.associate = models => {
         Product.belongsTo(models.category,{
             as : "categories",
             foreignKey:'category_id',
@@ -76,6 +76,6 @@ module.exports = (sequelize, DataTypes) => {
                 timestamps : false
             })
         }
-    }
+    }*/
     return Product
 }

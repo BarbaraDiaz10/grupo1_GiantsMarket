@@ -1,9 +1,11 @@
+const Users = require("../../models/User");
+
 module.exports = (sequelize, DataTypes) => {
 
     let alias = 'ProductUser'
 
     let cols = {
-        id: {
+        product_user_id: {
             type: DataTypes.INTEGER(10),
             allowNull: false,
             primaryKey: true,
@@ -31,21 +33,21 @@ module.exports = (sequelize, DataTypes) => {
     const ProductUser = sequelize.define(alias, cols, config)
 
 
-    ProductUser.associate = models => {
+    /*ProductUser.associate = models => {
         ProductUser.belongsToMany(models.product,{
             as : "products",
             foreignKey:'product_id',
             timestamps : false
         })
-    }
+    }*/
 
     ProductUser.associate = models =>{
-        user.belongsToMany(models.user,{
+        Users.belongsToMany(models.Users, {
             as: 'users',
-            foreignKey : 'product_user_id',
+            foreignKey : 'user_id',
             timestamps: false
 
-        })
+        });
     }
     return ProductUser
 }
