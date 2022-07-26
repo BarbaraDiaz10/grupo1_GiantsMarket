@@ -24,4 +24,9 @@ router.get('/login', mainController.login);
 router.post('/login', validationLogin, mainController.userLogin);
 router.get('/register', mainController.register);
 router.post('/register', upload.any(), validationRegister, mainController.store);
+router.get('/views/edit/:id/', mainController.edit);
+// revisar
+router.post('/', upload.any(), mainController.update);
+// revisar
+router.delete('/delete/:id', mainController.destroy);
 module.exports = router;

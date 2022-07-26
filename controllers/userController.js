@@ -125,6 +125,52 @@ const userController = {
         return res.redirect('/');
     },
 
+    edit: (req, res) => {
+        let id = req.params.id;
+        let user = users.find(i => i.id == id);
+        res.render("editUser", { user });
+
+
+    },
+
+    update: (req, res) => {
+        let id = req.params.id;
+        let userEdit = users.find(i => i.id == id);
+        let image
+
+        if (req.files[0] != undefined) {
+            image = req.files[0].filename
+        } else {
+            image = userEdit.image 
+        }
+
+        userEdit = {
+            id: userEdit.id,
+            ...req.body,
+            image: image
+        };
+
+        let userEdited = users.map(i => {
+            if (i.id == userEdit.id) {
+                return i = {...userEdit }
+            }
+            return i;
+        });
+
+        fs.writeFileSync(usersFilePath, JSON.stringify(userEdited));
+        res.redirect('/');
+
+
+    },
+
+    destroy: (req, res) => {
+        let id = req.params.id;
+        let userDelete = users.filter(i => i.id != id);
+        fs.writeFileSync(usersFilePath, JSON.stringify(userDelete));
+        res.redirect('/');
+
+    },
+
 }
 
 module.exports = userController
