@@ -1,5 +1,4 @@
-const { user } = require("../../controllers/userController");
-const Users = require("../../models/User");
+
 
 module.exports = (sequelize, DataTypes) => {
 
@@ -51,20 +50,22 @@ module.exports = (sequelize, DataTypes) => {
 
     }
     const User = sequelize.define(alias, cols, config)
-    //User.associate = models => {
-        /*User.belongsTo(models.rol,{
+    User.associate = models => {
+        User.belongsTo(models.Rol,{
             as : "roles",
             foreignKey:'role_id',
             timestamps : false
-        })*/
+        })
         User.associate = models =>{
-            ProductUser.belongsToMany(models.ProductUser,{
-                as: 'product_users',
+            User.belongsToMany(models.Product,{
+                through: 'product_users',
                 foreignKey : 'user_id',
+                otherKey: 'product_id',
                 timestamps: false
 
             })
         }
-    //}
-    return User
+    
+}
+  return User
 }

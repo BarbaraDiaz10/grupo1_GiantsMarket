@@ -1,9 +1,11 @@
+const Product = require("./Product");
+
 module.exports = (sequelize, DataTypes) => {
 
     let alias = 'Category'
 
     let cols = {
-        category_id: {
+        id: {
             type: DataTypes.INTEGER(10),
             allowNull: false,
             primaryKey: true,
@@ -23,11 +25,14 @@ module.exports = (sequelize, DataTypes) => {
 
     }
     const Category = sequelize.define(alias, cols, config)
-    /*Category.associate = models => {
-        Category.belongsToMany(models.product,{
+    Category.associate = models => {
+        Category.hasMany(models.Product,{
             as : "products",
+            //sourceKey:'category_id',
             foreignKey:'category_id',
-            timestamps : false
-        })*/
-    return Category
+            //timestamps : false
+        })
+    
+}
+     return Category
 }

@@ -1,4 +1,4 @@
-const Users = require("../../models/User");
+
 
 module.exports = (sequelize, DataTypes) => {
 
@@ -41,13 +41,13 @@ module.exports = (sequelize, DataTypes) => {
         })
     }*/
 
-    ProductUser.associate = models =>{
-        Users.belongsToMany(models.Users, {
+    /*ProductUser.associate = models =>{
+        User.belongsToMany(models.User, {
             as: 'users',
             foreignKey : 'user_id',
             timestamps: false
 
         });
-    }
+    }*/
     return ProductUser
 }

@@ -23,11 +23,13 @@ module.exports = (sequelize, DataTypes) => {
 
     }
     const Rol = sequelize.define(alias, cols, config)
-    /*Rol.associate = models => {
-        Rol.belongsToMany(models.user,{
+    Rol.associate = models => {
+        Rol.hasMany(models.User,{
             as : "users",
             foreignKey:'user_id',
             timestamps : false
-        })*/
-    return Rol
+        })
+    
+}
+return Rol
 }
