@@ -1,5 +1,3 @@
-
-
 module.exports = (sequelize, DataTypes) => {
 
     let alias = 'Product'
@@ -13,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         category_id: {
             type: DataTypes.INTEGER(10),
-            allowNull: false,
+            allowNull: true,
             //foreignKey: true
         },
         name: {
@@ -34,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         image: {
             type: DataTypes.STRING(500),
-            allowNull: false,
+            allowNull: true,
         },
         transferable: {
             type: DataTypes.STRING(1),
@@ -63,21 +61,21 @@ module.exports = (sequelize, DataTypes) => {
     }
     const Product = sequelize.define(alias, cols, config);
     Product.associate = models => {
-        Product.belongsTo(models.Category,{
-            as : "categories",
+        Product.belongsTo(models.Category, {
+            as: "category",
             //targetKey:'category_id',
-            foreignKey:'category_id',
-            //timestamps : false
+            foreignKey: 'category_id',
+            otherKey: 'id'
+                //timestamps : false
         })
 
-            Product.belongsToMany(models.User,{
-                through: "product_users",
-                foreignKey:'product_id',
-                otherKey: 'user_id',
-                timestamps : false
-            })
+        Product.belongsToMany(models.User, {
+            as: "users",
+            through: "product_users",
+            foreignKey: 'product_id',
+            otherKey: 'user_id',
+            timestamps: false
+        })
     }
-        return Product
+    return Product
 }
-    
-

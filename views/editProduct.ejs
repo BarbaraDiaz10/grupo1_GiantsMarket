@@ -7,60 +7,60 @@
     <body>
         <!--HEADER-->
         <%- include('partials/header')  %>
-            <form action="/productDetail/<%= product.id %>" method="POST" class="cont-form" enctype="multipart/form-data">
+            <form action="/productDetail/<%= Product.id %>" method="POST" class="cont-form" enctype="multipart/form-data">
 
                 <div class="p-form">
                     <h1>Edita el producto</h1>
                     <div class="igroup">
-                        <input type="text" name="name" id="name" value="<%= product.name %>"><span class="ibar"></span>
+                        <input type="text" name="name" id="name" value="<%= Product.name %>"><span class="ibar"></span>
                         <label for="name">Nombre del producto</label>
                     </div>
 
                     <div class="igroup">
-                        <input type="number" name="price" value="<%= product.price %>" id="price" required><span class="ibar"></span>
+                        <input type="number" name="price" value="<%= Product.price %>" id="price" required><span class="ibar"></span>
                         <label for="price">Precio</label>
                     </div>
 
                     <div class="igroup">
-                        <input type="file" name="image" value="<%= product.image%>" id="image"><span class="ibar"></span>
+                        <input type="file" name="image" value="<%= Product.image%>" id="image"><span class="ibar"></span>
                         <label for="image">Imagen</label>
                     </div>
 
                     <div class="igroup">
-                        <textarea cols="200" name="description" id="description"> <%= product.description%></textarea><span class="ibar"></span>
+                        <textarea cols="200" name="description" id="description"> <%= Product.description%></textarea><span class="ibar"></span>
                         <label for="description">Descripción</label>
                     </div>
 
                     <div class="igroup">
-                        <textarea cols="1000" name="descriptionDetail" id="descriptionDetail"> <%= product.descriptionDetail%></textarea><span class="ibar"></span>
-                        <label for="descriptionDetail">Descripción detalle</label>
+                        <textarea cols="1000" name="description_detail" id="description_detail"> <%= Product.description_detail%></textarea><span class="ibar"></span>
+                        <label for="description_detail">Descripción detalle</label>
                     </div>
 
                     <div class="igroup">
-                        <input type="number" name="stock" value="<%= product.stock %>" id="stock" required><span class="ibar"></span>
+                        <input type="number" name="stock" value="<%= Product.stock %>" id="stock" required><span class="ibar"></span>
                         <label for="stock">Stock</label>
                     </div>
 
+                    <!--aqui va lo de categoria-->
                     <div class="igroup">
                         <label>Categoria</label>
-                        <select class="f-select" name="category" id="category">
-                            <option value="" disabled> Selecciona una opcion</option>
-                            <option value="unico" <%- product.category === 'unico' ? 'selected' : '' %>>Unico</option>
-                            <option value="varios" <%- product.category === 'varios' ? 'selected' : '' %>>Varios</option>
+                        <select class="f-select" name="category" id="category_id">
+                            <% allCategories.forEach(cate => { %>
+                                <option value="<%= cate.id %>" <% if (Product.cate.id == cate.id) { %><%= 'selected' %><% }; %>><%= cate.name %></option>
+                                <% }); %> 
                         </select>
                     </div>
-
                     <!-- HIDDEN-->
                     <div class="igroup" hidden>
-                        <input type="Text" name="transferable" value="<%= product.transferable %>" id="transferable" ><span class="ibar"></span>
+                        <input type="Text" name="transferable" value="<%= Product.transferable %>" id="transferable"><span class="ibar"></span>
                         <label for="transferable">transferable</label>
                     </div>
                     <div class="igroup" hidden>
-                        <input type="Text" name="discount" value="<%= product.discount %>" id="discount" ><span class="ibar"></span>
+                        <input type="Text" name="discount" value="<%= Product.discount %>" id="discount"><span class="ibar"></span>
                         <label for="discount">discount</label>
                     </div>
                     <div class="igroup" hidden>
-                        <input type="Text" name="shipping" value="<%= product.shipping %>" id="shipping" ><span class="ibar"></span>
+                        <input type="Text" name="shipping" value="<%= Product.shipping %>" id="shipping"><span class="ibar"></span>
                         <label for="shipping">shipping</label>
                     </div>
 
@@ -71,4 +71,4 @@
             <%- include('partials/footer')  %>
     </body>
 
-</html>
+</html>x
