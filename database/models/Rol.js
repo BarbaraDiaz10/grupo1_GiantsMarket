@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     let alias = 'Rol'
 
     let cols = {
-        role_id: {
+        id: {
             type: DataTypes.INTEGER(10),
             allowNull: false,
             primaryKey: true,
@@ -24,12 +24,11 @@ module.exports = (sequelize, DataTypes) => {
     }
     const Rol = sequelize.define(alias, cols, config)
     Rol.associate = models => {
-        Rol.hasMany(models.User,{
-            as : "users",
-            foreignKey:'user_id',
-            timestamps : false
+        Rol.hasMany(models.User, {
+            as: "users",
+            foreignKey: 'id'
         })
-    
-}
-return Rol
+
+    }
+    return Rol
 }

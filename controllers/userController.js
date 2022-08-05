@@ -7,6 +7,9 @@ const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const ModelUsers = require('../models/User');
+const db = require('../database/models/index');
+
+const User = db.User;
 
 const userController = {
     index: (req, res) => {
@@ -34,32 +37,35 @@ const userController = {
         const resultValidation = validationResult(req)
 
         if (resultValidation.errors.length > 0) {
+            console.log(resultValidation.errors)
             res.render("register", {
                 errors: resultValidation.mapped(),
             })
-        }
-
-
-        let image
-
-
-        if (req.files[0] != undefined) {
-            image = req.files[0].filename
         } else {
-            image = "default-image.png"
-        }
-        /********************************************************** */
+            console.log('aqui22')
+            let image
 
-        let newUsers = {
 
-            id: users[users.length - 1].id + 1,
-            ...req.body,
-            password: bcrypt.hashSync('password', 10),
-            image: image //PARA LAS IMAGENES
+            if (req.files[0] != undefined) {
+                image = req.files[0].filename
+            } else {
+                image = "default-image.png"
+            }
+            /********************************************************** */
+
+
+            db.User.create({
+                    ...req.body,
+                    password: bcrypt.hashSync('password', 10),
+                })
+                .then(() =>
+                    res.redirect('/register')
+
+                )
         }
-        users.push(newUsers);
-        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ''));
-        res.redirect('/');
+
+
+
 
     },
     user: (req, res) => {
@@ -141,7 +147,7 @@ const userController = {
         if (req.files[0] != undefined) {
             image = req.files[0].filename
         } else {
-            image = userEdit.image 
+            image = userEdit.image
         }
 
         userEdit = {

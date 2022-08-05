@@ -26,10 +26,10 @@
             </div>
 
             <div class="group">
-                <input type="text" name="lastname" id="lastname" minlength="3" maxlength="20"><span class="bar"></span>
-                <label class="labelLogin" for="lastname">Apellido</label>
+                <input type="text" name="last_name" id="last_name" minlength="3" maxlength="20"><span class="bar"></span>
+                <label class="labelLogin" for="last_name">Apellido</label>
                 <p class="error">
-                    <%= (locals.errors && errors.lastname ? errors.lastname.msg : null) %>
+                    <%= (locals.errors && errors.last_name ? errors.last_name.msg : null) %>
                 </p>
             </div>
 
@@ -54,28 +54,15 @@
                     <%= (locals.errors && errors.date ? errors.date.msg : null) %>
                 </p>
             </div>
-
-            <div class="group">
-                <label>Selecciona tu sexo</label>
-                <select class="select1" name="gender" id="gender">
-                <option value="" disabled selected>Selecciona una opcion</option>
-                <option value="mujer">Mujer</option>
-                <option value="hombre">Hombre</option>
-                <option value="otro">Otro</option>
-            </select>
-                <p class="error">
-                    <%= (locals.errors && errors.gender ? errors.gender.msg : null) %>
-                </p>
-            </div>
             <div class="group">
                 <label>Selecciona tu rol</label>
-                <select class="select1" name="admin" id="admin">
+                <select class="select1" name="role_id" id="role_id">
                     <option value="" disabled selected>Selecciona una opcion</option>
-                    <option [ngValue]="1">Administrador</option>
-                    <option [ngValue]="0">Usuario</option>
+                    <option value="1">Administrador</option>
+                    <option value="0">Usuario</option>
               </select>
                 <p class="error">
-                    <%= (locals.errors && errors.admin ? errors.admin.msg : null) %>
+                    <%= (locals.errors && errors.role_id ? errors.role_id.msg : null) %>
                 </p>
             </div>
 

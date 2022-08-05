@@ -1,11 +1,9 @@
-
-
 module.exports = (sequelize, DataTypes) => {
 
     let alias = 'User'
 
     let cols = {
-        user_id: {
+        id: {
             type: DataTypes.INTEGER(10),
             allowNull: false,
             primaryKey: true,
@@ -13,8 +11,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         role_id: {
             type: DataTypes.INTEGER(10),
-            allowNull: false,
-            foreignKey: true
+            allowNull: true
         },
         first_name: {
             type: DataTypes.STRING(30),
@@ -36,10 +33,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING(20),
             allowNull: false,
         },
-        admin: {
-            type: DataTypes.STRING(10),
-            allowNull: false,
-        }
+        image: {
+            type: DataTypes.STRING(500),
+            allowNull: true,
+        },
     };
     let config = {
 
@@ -51,21 +48,21 @@ module.exports = (sequelize, DataTypes) => {
     }
     const User = sequelize.define(alias, cols, config)
     User.associate = models => {
-        User.belongsTo(models.Rol,{
-            as : "roles",
-            foreignKey:'role_id',
-            timestamps : false
+        User.belongsTo(models.Rol, {
+            as: "roles",
+            foreignKey: 'role_id',
+            otherKey: 'id'
         })
-        User.associate = models =>{
-            User.belongsToMany(models.Product,{
+        User.associate = models => {
+            User.belongsToMany(models.Product, {
                 through: 'product_users',
-                foreignKey : 'user_id',
+                foreignKey: 'id',
                 otherKey: 'product_id',
                 timestamps: false
 
             })
         }
-    
-}
-  return User
+
+    }
+    return User
 }
