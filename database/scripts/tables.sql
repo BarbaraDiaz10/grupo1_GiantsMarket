@@ -6,8 +6,8 @@ CREATE TABLE roles (
 `role_name` varchar(50) NOT NULL
 );
 
-DROP TABLE IF EXISTS `category`;
-CREATE TABLE `category` (
+DROP TABLE IF EXISTS category;
+CREATE TABLE category (
 `id` INT(10) PRIMARY KEY NOT NULL,
 `category_name` varchar(50) NOT NULL);
 
@@ -27,7 +27,7 @@ CREATE TABLE users (
 foreign key (`role_id`) references `roles` (`role_id`)
 );
 
-DROP TABLE IF EXISTS `products`;
+DROP TABLE IF EXISTS products;
 CREATE TABLE `products` (
 `id` INT(10) PRIMARY KEY NOT NULL AUTO_INCREMENT,
 `name` varchar(50) NOT NULL,
@@ -41,10 +41,10 @@ CREATE TABLE `products` (
 `shipping` int(10) NOT NULL,
 `stock` int(10) NOT NULL,
 
-foreign key (`id`) references `category` (`id`)
+foreign key (`category_id`) references `category` (`id`)
 );
 
-DROP TABLE IF EXISTS `product_user`;
+DROP TABLE IF EXISTS product_user;
 CREATE TABLE `product_user` (
 `product_user_id` INT(10) PRIMARY KEY NOT NULL AUTO_INCREMENT,
 `user_id` INT(10) NOT NULL,
