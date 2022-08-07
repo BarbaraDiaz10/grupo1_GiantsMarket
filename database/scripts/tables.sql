@@ -14,7 +14,7 @@ CREATE TABLE `category` (
 
 DROP TABLE IF EXISTS users;
 CREATE TABLE users (
-`user_id` INT(10) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`id` INT(10) PRIMARY KEY NOT NULL AUTO_INCREMENT,
 `first_name` varchar(30) NOT NULL,
 `last_name` varchar(30) NOT NULL,
 `email` varchar(30) NOT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE users (
 `date` date not null,
 `password` varchar(20) NOT NULL,
 `role_id` INT(10) NOT NULL,
-`image` varchar(100) NOT NULL,
+`image` varchar(500) NOT NULL,
 
 foreign key (`role_id`) references `roles` (`role_id`)
 );
