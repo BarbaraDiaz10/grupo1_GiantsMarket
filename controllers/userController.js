@@ -33,6 +33,7 @@ const userController = {
 
     },
 
+    
     store: (req, res) => {
         const resultValidation = validationResult(req)
 
@@ -41,28 +42,30 @@ const userController = {
             res.render("register", {
                 errors: resultValidation.mapped(),
             })
-        } else {
+        } 
+         else {
             console.log('aqui22')
-            let image
+            let image 
 
-
-            if (req.files[0] != undefined) {
-                image = req.files[0].filename
+            /*if (req.files[0] != undefined) {
+            image = req.files[0].filename
             } else {
-                image = "default-image.png"
-            }
-            /********************************************************** */
-
-
-            db.User.create({
-                    ...req.body,
-                    password: bcrypt.hashSync('password', 10),
+            image = "default-image.png"
+             }"
+            /***********************************************************/
+            db.Product.create({
+            ...req.body,
+            password: bcrypt.hashSync('password', 10),
+            image: req.file ? 'public/images/users' + req.file.filename : 'public/images/users/default-image.png'
                 })
                 .then(() =>
                     res.redirect('/register')
 
                 )
-        }
+            
+            }
+         
+        
 
 
 
