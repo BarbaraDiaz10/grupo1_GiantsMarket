@@ -1,3 +1,25 @@
+-- SPRINT 7. --
+
+Start doing:
+1.Documentarnos sobre temas de validaciones.
+2.Actualizar las actividades del tablero.
+3.Determinar campos que necesitan validaciones segun cual sea el formulario.
+4.Proceder a colocar las validaciones pertinentes.
+
+More of:
+1. Utilizar temas dados en clase.
+
+Keep doing:
+1. Homologar las ideas del equipo.
+2. Mantener compromiso de cada tarea del equipo y entrega en el tiempo asignado.
+
+Less of:
+1. Aplicar malas practicas.
+
+Stop Doing:
+1. Dejar las cosas para última hora.
+2. Dedicar mas tiempo para el proyecto integrador.
+
 
 -- SPRINT 6. --
 
