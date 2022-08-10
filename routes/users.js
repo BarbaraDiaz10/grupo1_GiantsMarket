@@ -24,9 +24,10 @@ router.get('/login', mainController.login);
 router.post('/login', validationLogin, mainController.userLogin);
 router.get('/register', mainController.register);
 router.post('/register', upload.any(), validationRegister, mainController.store);
-router.get('/views/edit/:id/', mainController.edit);
+router.get('/userDetail/:id/', mainController.userDetail);
+router.get('/userEdit/:id/', mainController.edit);
 // revisar
-router.post('/', upload.any(), mainController.update);
+router.post('/userDetail/:id', upload.any(), mainController.update);
 // revisar
 router.delete('/delete/:id', mainController.destroy);
 module.exports = router;
