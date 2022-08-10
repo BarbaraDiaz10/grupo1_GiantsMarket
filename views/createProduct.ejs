@@ -7,16 +7,17 @@
     <body>
         <!--HEADER-->
         <%- include('partials/header')  %>
+        <ul class="errors"></ul>
             <form action="/create" method="POST" id="form" class="cont-form" enctype="multipart/form-data">
                 <div class="p-form">
                     <h1>Crear Producto</h1>
                     <div class="igroup">
-                        <input type="text" name="name" id="name" minlength="3" maxlength="20" placeholder="Escribe el nombre del producto" required><span class="ibar"></span>
+                        <input type="text" name="name" id="name" minlength="3" maxlength="20" placeholder="Escribe el nombre del producto" ><span class="ibar"></span>
                         <label for="name">Nombre del producto</label>
                     </div>
 
                     <div class="igroup">
-                        <input type="Text" name="price" id="price" placeholder="Escribe el precio del producto" required><span class="ibar"></span>
+                        <input type="Text" name="price" id="price" placeholder="Escribe el precio del producto" ><span class="ibar"></span>
                         <label for="price">Precio</label>
                     </div>
 
@@ -36,7 +37,7 @@
                     </div>
 
                     <div class="igroup">
-                        <input type="number" name="stock" id="stock" placeholder="Escribe la cantidad de productos que quieres vender" required><span class="ibar"></span>
+                        <input type="number" name="stock" id="stock" placeholder="Escribe la cantidad de productos que quieres vender" ><span class="ibar"></span>
                         <label for="stock">Stock</label>
                     </div>
 
@@ -65,6 +66,7 @@
                     <button type="submit" class="button">Guardar producto</button>
                 </div>
             </form>
+            <script src="/js/productsAddValidation.js"></script>
             <!--FOOTER-->
             <%- include('partials/footer')  %>
     </body>

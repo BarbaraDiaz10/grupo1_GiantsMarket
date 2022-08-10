@@ -76,3 +76,9 @@ input {
     border: none;
     border-bottom: 1px solid var(--colorTextos);
 }
+.alert-warning{
+    color:#842029;
+    background-color: #F8D7DA;
+    text-align: center;
+    border-radius: 10px;
+  }

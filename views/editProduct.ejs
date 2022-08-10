@@ -7,6 +7,8 @@
     <body>
         <!--HEADER-->
         <%- include('partials/header')  %>
+        <ul class="errors"></ul>
+
             <form action="/productDetail/<%= Product.id %>" method="POST" class="cont-form" enctype="multipart/form-data">
 
                 <div class="p-form">
@@ -17,7 +19,7 @@
                     </div>
 
                     <div class="igroup">
-                        <input type="number" name="price" value="<%= Product.price %>" id="price" required><span class="ibar"></span>
+                        <input type="number" name="price" value="<%= Product.price %>" id="price" ><span class="ibar"></span>
                         <label for="price">Precio</label>
                     </div>
 
@@ -37,19 +39,12 @@
                     </div>
 
                     <div class="igroup">
-                        <input type="number" name="stock" value="<%= Product.stock %>" id="stock" required><span class="ibar"></span>
+                        <input type="number" name="stock" value="<%= Product.stock %>" id="stock"><span class="ibar"></span>
                         <label for="stock">Stock</label>
                     </div>
 
                     <!--aqui va lo de categoria-->
-                    <div class="igroup">
-                        <label>Categoria</label>
-                        <select class="f-select" name="category" id="category_id">
-                            <% allCategories.forEach(cate => { %>
-                                <option value="<%= cate.id %>" <% if (Product.cate.id == cate.id) { %><%= 'selected' %><% }; %>><%= cate.name %></option>
-                                <% }); %> 
-                        </select>
-                    </div>
+
                     <!-- HIDDEN-->
                     <div class="igroup" hidden>
                         <input type="Text" name="transferable" value="<%= Product.transferable %>" id="transferable"><span class="ibar"></span>
@@ -67,6 +62,7 @@
                     <button type="submit" class="button">Guardar producto</button>
                 </div>
             </form>
+            <script src="/js/productsAddValidation.js"></script>
             <!--FOOTER-->
             <%- include('partials/footer')  %>
     </body>

@@ -164,7 +164,18 @@ img {
 .delete {
     background: linear-gradient(to right, #ce3548, #4568DC);
 }
-
+.is-valid {
+    /* color: #198754; */
+    outline: none;
+    border: 2px solid #198754  ;
+    box-shadow: 0px 0px 4px 4px rgba(0,255,0, 0.5);
+  }
+  .is-invalid {
+    /* color: #842029; */
+    outline: none;
+    border: 2px solid #842029  ;
+    box-shadow: 0px 0px 4px 4px rgba(255,0,0, 0.5);
+  }
 @media (min-width: 768px) {
     .mainCards {
         display: flex;
