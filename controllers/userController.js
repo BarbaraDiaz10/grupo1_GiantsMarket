@@ -53,7 +53,7 @@ const userController = {
             image = "default-image.png"
              }"
             /***********************************************************/
-            db.Product.create({
+            db.User.create({
             ...req.body,
             password: bcrypt.hashSync('password', 10),
             image: req.file ? 'public/images/users' + req.file.filename : 'public/images/users/default-image.png'
@@ -134,50 +134,51 @@ const userController = {
         return res.redirect('/');
     },
 
+    userDetail: (req, res) => {
+        db.User.findByPk(req.params.id)
+           .then(user => {
+               res.render('userDetail', {
+                   user,
+                   toThousand
+               })
+            })
+   },
+
     edit: (req, res) => {
         let id = req.params.id;
-        let user = users.find(i => i.id == id);
-        res.render("editUser", { user });
-
+        let promUser = User.findByPk(id)
+        Promise
+            .all([promUser])
+            .then(([User]) => {
+                res.render("editUser", { User })
+            })
 
     },
 
     update: (req, res) => {
+
         let id = req.params.id;
-        let userEdit = users.find(i => i.id == id);
-        let image
-
-        if (req.files[0] != undefined) {
-            image = req.files[0].filename
-        } else {
-            image = userEdit.image
-        }
-
-        userEdit = {
-            id: userEdit.id,
-            ...req.body,
-            image: image
-        };
-
-        let userEdited = users.map(i => {
-            if (i.id == userEdit.id) {
-                return i = {...userEdit }
+        User.update({...req.body }, {
+            where: {
+                id: id
             }
-            return i;
-        });
-
-        fs.writeFileSync(usersFilePath, JSON.stringify(userEdited));
-        res.redirect('/');
+        }).then(() => {
+            res.redirect('/');
+        }).catch(err => { res.send(err) });
 
 
     },
 
     destroy: (req, res) => {
-        let id = req.params.id;
-        let userDelete = users.filter(i => i.id != id);
-        fs.writeFileSync(usersFilePath, JSON.stringify(userDelete));
-        res.redirect('/');
+        let userId = req.params.id;
 
+        User.destroy({
+            where: {
+                id: +userId
+            }
+        }).then(() => {
+            res.redirect('/')
+        }).catch(err => res.send(err))
     },
 
 }
