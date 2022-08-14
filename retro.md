@@ -1,21 +1,28 @@
 -- SPRINT 8. --
 
-Start doing: 1.Documentarnos sobre API'S, REACT. 2.Actualizar las actividades del tablero. 3.Determinar la información de las API'S . 4.Ver grabaciones y apuntes de clases sobre REACT para la incorporación en front-end.
+Start doing: 
+1.Documentarnos sobre API'S, REACT. 
+2.Actualizar las actividades del tablero. 
+3.Determinar la información de las API'S . 
+4.Ver grabaciones y apuntes de clases sobre REACT para la incorporación en front-end.
 
 More of:
 
-Utilizar temas dados en clase.
+1.Utilizar temas dados en clase.
+
 Keep doing:
 
-Homologar las ideas del equipo.
-Mantener compromiso de cada tarea del equipo y entrega en el tiempo asignado.
+1.Homologar las ideas del equipo.
+2.Mantener compromiso de cada tarea del equipo y entrega en el tiempo asignado.
+
 Less of:
 
-Aplicar malas practicas.
+1.Aplicar malas practicas.
+
 Stop Doing:
 
-Dejar las cosas para última hora.
-Dedicar mas tiempo para el proyecto integrador.
+1.Dejar las cosas para última hora.
+2.Dedicar mas tiempo para el proyecto integrador.
 
 
 -- SPRINT 7. --
