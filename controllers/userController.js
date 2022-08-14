@@ -83,25 +83,41 @@ const userController = {
 
     userLogin: (req, res) => {
 
-        let resultValidation = validationResult(req)
-        let userToLogin = ModelUsers.findField('email', req.body.email);
+        db.Product.findAll({
+            order: [
+                ['name', 'ASC']
+            ]
+        })
+        .then(products => {
+            if (req.session.form) {
+                let data = req.session.form
+                res.render("index", { data: data, products });
+            }
+            res.render("index", { products })
+        })
 
+        let resultValidation = validationResult(req)
+        let email = req.body.email
+        let password = req.body.password;
+        let userToLogin = User.findOne({
+            where: {email: email}
+        });
+        console.log(req.body)
         if (!resultValidation.errors.length > 0) {
-            if (userToLogin) {
-                //REVISAR
-                // let password = req.body.password == userToLogin.password;
-                let password = req.body.password;
+            if (userToLogin) {            
                 if (password) {
-                    //REVISAR
-                    // userData = userToLogin
-                    // delete userToLogin.password;
-                    // req.session.userLogged = userData;
+                     userData = userToLogin
+                     delete userToLogin.password;
+                     req.session.userLogged = userData;
 
                     if (req.body.remember) {
                         res.cookie('userEmail', req.body.email, { maxAge: (1000 * 1000) * 90 })
                     }
-
+                    console.log(products)
                     return res.redirect('/');
+                    // return res.render('index', {User, products});
+                    
+            
                 }
                 return res.render('login', {
                     errors: {
@@ -119,14 +135,17 @@ const userController = {
                     }
                 })
             }
-        } else {
-
+        }else{
             return res.render('login', {
-                errors: resultValidation.mapped(),
+                errors: {
+                    email: {
+                        msg: 'No se encontro el correo ingresado'
+                    }
+                }
             })
         }
-
     },
+
 
     logout: (req, res) => {
         res.clearCookie('email');
@@ -138,8 +157,7 @@ const userController = {
         db.User.findByPk(req.params.id)
            .then(user => {
                res.render('userDetail', {
-                   user,
-                   toThousand
+                   user
                })
             })
    },
