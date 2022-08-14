@@ -4,6 +4,7 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 const controller = require('../controllers/mainController')
+const validationProduct = require('../middlewares/productRegister')
 const productsController = require('../controllers/productsController')
 const adminMiddleware = require('../middlewares/admin');
 
@@ -26,10 +27,10 @@ router.get('/admin', adminMiddleware, controller.admin); /*middlewares que valid
 router.get('/productDetail/:id/', productsController.productDetail);
 // /*** CREATE ONE PRODUCT ***/ 
 router.get('/create', productsController.create);
-router.post('/create', upload.any(), productsController.store);
+router.post('/create', upload.any(),validationProduct, productsController.store);
 /*** EDIT ONE PRODUCT ***/
 router.get('/views/edit/:id/', productsController.edit);
-router.post('/productDetail/:id', upload.any(), productsController.update);
+router.post('/productDetail/:id', upload.any(),validationProduct, productsController.update);
 
 // /*** DELETE ONE PRODUCT***/ 
 router.delete('/delete/:id', productsController.destroy);
