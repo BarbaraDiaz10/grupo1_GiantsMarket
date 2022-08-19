@@ -17,18 +17,31 @@ const ProductUser = db.ProductUser
 const mainController = {
     index: (req, res) => {
         /*LISTAR LOS PRODUCTOS*/
-        db.Product.findAll({
-                order: [
-                    ['name', 'ASC']
-                ]
-            })
-            .then(products => {
-                if (req.session.form) {
-                    let data = req.session.form
-                    res.render("index", { data: data, products });
-                }
-                res.render("index", { products })
-            })
+        
+        // db.Product.findAll({
+        //         order: [
+        //             ['name', 'ASC']
+        //         ]
+        //     })
+        //     .then(products => {
+        //         if (req.session.form) {
+        //             let data = req.session.form
+        //             res.render("index", { data: data, products });
+        //         }
+        //         res.render("index", { products })
+        //     })
+
+        let user = db.User.findOne();
+        let products = db.Product.findAll();
+
+        Promise.all([user,products])
+        .then(data =>{
+            let [user,products] = data
+            res.render('index',{user,products})
+        })
+
+
+
     },
 
     admin: (req, res) => {

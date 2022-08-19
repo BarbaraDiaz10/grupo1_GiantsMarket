@@ -2,11 +2,10 @@ const fs = require('fs');
 const path = require('path');
 const productsFilePath = path.join(__dirname, '../data/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-const usersFilePath = path.join(__dirname, '../data/users.json');
-const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+//const usersFilePath = path.join(__dirname, '../data/users.json');
+//const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
-const ModelUsers = require('../models/User');
 const db = require('../database/models/index');
 
 const User = db.User;
@@ -38,13 +37,13 @@ const userController = {
         const resultValidation = validationResult(req)
 
         if (resultValidation.errors.length > 0) {
-            console.log(resultValidation.errors)
+
             res.render("register", {
                 errors: resultValidation.mapped(),
             })
         } 
          else {
-            console.log('aqui22')
+
             let image 
 
             /*if (req.files[0] != undefined) {
@@ -83,28 +82,27 @@ const userController = {
 
     userLogin: (req, res) => {
 
-        db.Product.findAll({
-            order: [
-                ['name', 'ASC']
-            ]
-        })
-        .then(products => {
-            if (req.session.form) {
-                let data = req.session.form
-                res.render("index", { data: data, products });
-            }
-            res.render("index", { products })
-        })
-
         let resultValidation = validationResult(req)
-        let email = req.body.email
         let password = req.body.password;
-        let userToLogin = User.findOne({
-            where: {email: email}
-        });
-        console.log(req.body)
+        
+        //console.log(resultValidation)
         if (!resultValidation.errors.length > 0) {
-            if (userToLogin) {            
+            let userToLogin = User.findOne({
+                where: {email: req.body.email}
+            })
+            
+            console.log(req.body)
+            
+                // if (userToLogin){
+                //      if(password === userToLogin.password){
+                //         req.session.userToLogin = userToLogin
+                //         return res.redirect('/');
+                //     }
+                //  }
+                //  .then (userToLogin => {
+
+                //  })
+            if (userToLogin) {     
                 if (password) {
                      userData = userToLogin
                      delete userToLogin.password;
@@ -113,11 +111,8 @@ const userController = {
                     if (req.body.remember) {
                         res.cookie('userEmail', req.body.email, { maxAge: (1000 * 1000) * 90 })
                     }
-                    console.log(products)
                     return res.redirect('/');
-                    // return res.render('index', {User, products});
-                    
-            
+                    //return res.render('index', {User, products});
                 }
                 return res.render('login', {
                     errors: {
@@ -164,7 +159,7 @@ const userController = {
 
     edit: (req, res) => {
         let id = req.params.id;
-        let promUser = User.findByPk(id)
+        let promUser = User.findOne(id)
         Promise
             .all([promUser])
             .then(([User]) => {
