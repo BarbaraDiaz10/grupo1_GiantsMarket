@@ -25,7 +25,7 @@ router.post('/login', validationLogin, mainController.userLogin);
 router.get('/register', mainController.register);
 router.post('/register', upload.any(), validationRegister, mainController.store);
 router.get('/userDetail/:id/', mainController.userDetail);
-router.get('/userEdit/:id/', mainController.edit);
+router.get('/editUser/:id/', mainController.edit);
 // revisar
 router.post('/userDetail/:id', upload.any(), mainController.update);
 // revisar
