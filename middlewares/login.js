@@ -1,10 +1,11 @@
 const { check, body } = require('express-validator');
 //const {users} = require("../data/db");
 const bcrypt = require('bcryptjs')
-const db = require('../database/models')
+const db = require('../database/models');
+const { user } = require('../controllers/userController');
 
 const validationLogin = [
-    check('email')
+    body('email')
     .isEmail()
     .withMessage('Debes ingresar un email válido'),
   
@@ -21,16 +22,18 @@ const validationLogin = [
           }
       })
   }),
+  /*body('email').notEmpty().withMessage("El email no puede ser vacio").bail()
+    .isEmail().withMessage("Debe ingresar un formato de email válido"),*/
   body('password').custom((value, {req}) => {
   return db.User.findOne({where: { email: req.body.email}})
-  .then((user)=>{
+  /*.then((user)=>{
     if (!bcrypt.compareSync(value, user.password)){
       return Promise.reject()
-    }
-  }).catch(() => {
-    return Promise.reject("Las contraseñas no coinciden");
-  });
-  })
+    }*/
+  })//.catch(() => {
+    //return Promise.reject("Las contraseñas no coinciden");
+  //})
+  
 
     /*body('email').notEmpty().withMessage("El email no puede estar vacio").bail()
     .isEmail().withMessage("Debe ingresar un formato de email válido"),
