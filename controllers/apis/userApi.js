@@ -6,12 +6,10 @@ const moment = require('moment');
 const { user } = require('../userController');
 
 
-//Aqui tienen otra forma de llamar a cada uno de los modelos
+
 const User = db.User;
 const Rol= db.Rol;
-//---------------------------
-//Dentro del userAPIController uso las dos forma de poder llamar a nuestros modelo
-//----------------------------------
+
 const userAPIController = {
     'list': (req, res) => {
         db.User.findAll({
