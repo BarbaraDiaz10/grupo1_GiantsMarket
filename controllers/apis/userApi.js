@@ -10,9 +10,9 @@ const { user } = require('../userController');
 const User = db.User;
 const Rol= db.Rol;
 //---------------------------
-//Dentro del actorsAPIController uso las dos forma de poder llamar a nuestros modelo
+//Dentro del userAPIController uso las dos forma de poder llamar a nuestros modelo
 //----------------------------------
-const actorsAPIController = {
+const userAPIController = {
     'list': (req, res) => {
         db.User.findAll({
             attributes: ['id', 'first_name', 'email']
@@ -51,4 +51,4 @@ const actorsAPIController = {
     
 }
 
-module.exports = actorsAPIController;
+module.exports = userAPIController;
