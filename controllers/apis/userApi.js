@@ -14,7 +14,9 @@ const Rol= db.Rol;
 //----------------------------------
 const actorsAPIController = {
     'list': (req, res) => {
-        db.User.findAll()
+        db.User.findAll({
+            attributes: ['id', 'first_name', 'email']
+        })
         .then(users => {
             let respuesta = {
                 
@@ -30,7 +32,8 @@ const actorsAPIController = {
     },
     
     'detail': (req, res) => {
-        db.User.findByPk(req.params.id)
+        db.User.findByPk(req.params.id,{attributes: ['id', 'first_name', 'last_name', 'email','date','gender','image' ]
+        })
             .then(users => {
                 let respuesta = {
                     meta: {
