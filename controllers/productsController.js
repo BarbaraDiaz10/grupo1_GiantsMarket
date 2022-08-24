@@ -36,11 +36,11 @@ const productsController = {
         //         })
         //     })
         let product = db.Product.findByPk(req.params.id)
-        Promise.all([user,product])
-        .then(data =>{
-            let [user,product] = data
-            res.render('productDetail',{user,product,toThousand})
-        })
+        Promise.all([user, product])
+            .then(data => {
+                let [user, product] = data
+                res.render('productDetail', { user, product, toThousand })
+            })
     },
     productCart: (req, res) => {
         res.render("productCart")
@@ -48,31 +48,33 @@ const productsController = {
 
     create: (req, res) => { //Solo necesitamos pasarle la vista renderizada para que la rellene, es por get
         let product = db.Product.findByPk(req.params.id)
-        Promise.all([user,product])
-        .then(data =>{
-            let [user,product] = data
-            res.render('createProduct',{user,product,toThousand})
-        })
-        
-            /*llamar al crear
-            db.product.findAll()
-            .then((allCategories)=>{
-                res.render('createProduct')
-            })*/
+        Promise.all([user, product])
+            .then(data => {
+                let [user, product] = data
+                res.render('createProduct', { user, product, toThousand })
+            })
+
+        /*llamar al crear
+        db.product.findAll()
+        .then((allCategories)=>{
+            res.render('createProduct')
+        })*/
     },
 
     store: (req, res) => {
-        /***********************PARA LAS IMAGENES ***********************/
-        let image
+        console.log(req.files[0].filename)
+            /***********************PARA LAS IMAGENES ***********************/
+        let imageBd
 
         if (req.files[0] != undefined) {
-            image = req.files[0].filename
+            imageBd = req.files[0].filename
         } else {
-            image = "default-image.png"
+            imageBd = "default-image.png"
         }
         /********************************************************** */
         db.Product.create({
-                ...req.body
+                ...req.body,
+                image: '/images/products/' + imageBd
             })
             .then(() =>
                 res.redirect('/')
@@ -87,12 +89,12 @@ const productsController = {
         let promProduct = Product.findByPk(id)
             // let promCategories = Category.findAll()
         Promise
-            .all([promProduct,user])
-            .then(([Product,user]) => {
+            .all([promProduct, user])
+            .then(([Product, user]) => {
                 res.render("editProduct", { Product, user })
             })
 
-        
+
 
 
 
@@ -100,9 +102,19 @@ const productsController = {
 
 
     update: (req, res) => {
+        console.log(req.files[0].filename)
+            /***********************PARA LAS IMAGENES ***********************/
+        let imageBd
 
+        if (req.files[0] != undefined) {
+            imageBd = req.files[0].filename
+        } else {
+            imageBd = "default-image.png"
+        }
         let id = req.params.id;
-        Product.update({...req.body }, {
+        Product.update({...req.body,
+            image: '/images/products/' + imageBd
+        }, {
             where: {
                 id: id
             }

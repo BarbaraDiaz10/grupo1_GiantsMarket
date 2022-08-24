@@ -10,7 +10,7 @@
             <main>
                 <section class="mainCards">
                     <article class="productImage">
-                        <img src="/images/products/<%= product.image%>" alt="Torre Eiffel">
+                        <img src="<%= product.image%>" alt="Torre Eiffel">
                     </article>
 
                     <article class="descriptionCard">
@@ -50,7 +50,7 @@
                                 <form action="/delete/<%= product.id %>?_method=DELETE" method="POST">
                                     <button type="submit" class="buttonDetail delete">Eliminar Producto</button>
                                 </form>
-                            <%  } %>
+                                <%  } %>
                         </div>
                     </article>
                 </section>

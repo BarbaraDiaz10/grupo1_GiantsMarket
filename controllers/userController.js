@@ -32,19 +32,27 @@ const userController = {
 
     },
 
-    
+
     store: (req, res) => {
+        console.log(req.files[0].filename)
+            /***********************PARA LAS IMAGENES ***********************/
+        let imageBd
+
+        if (req.files[0] != undefined) {
+            imageBd = req.files[0].filename
+        } else {
+            imageBd = "default-image.png"
+        }
         const resultValidation = validationResult(req)
 
         if (resultValidation.errors.length > 0) {
-
+            console.log(resultValidation)
             res.render("register", {
                 errors: resultValidation.mapped(),
             })
-        } 
-         else {
+        } else {
 
-            let image 
+            let image
 
             /*if (req.files[0] != undefined) {
             image = req.files[0].filename
@@ -53,18 +61,19 @@ const userController = {
              }"
             /***********************************************************/
             db.User.create({
-            ...req.body,
-            password: bcrypt.hashSync('password', 10),
-            image: req.file ? 'public/images/users' + req.file.filename : 'public/images/users/default-image.png'
+
+                    ...req.body,
+                    password: bcrypt.hashSync('password', 10),
+                    image: '/images/products/' + imageBd
                 })
                 .then(() =>
-                    res.redirect('/register')
+                    res.redirect('/')
 
                 )
-            
-            }
-         
-        
+
+        }
+
+
 
 
 
@@ -84,29 +93,29 @@ const userController = {
 
         let resultValidation = validationResult(req)
         let password = req.body.password;
-        
+
         //console.log(resultValidation)
         if (!resultValidation.errors.length > 0) {
             let userToLogin = User.findOne({
-                where: {email: req.body.email}
+                where: { email: req.body.email }
             })
-            
-            console.log(req.body)
-            
-                // if (userToLogin){
-                //      if(password === userToLogin.password){
-                //         req.session.userToLogin = userToLogin
-                //         return res.redirect('/');
-                //     }
-                //  }
-                //  .then (userToLogin => {
 
-                //  })
-            if (userToLogin) {     
+            console.log(req.body)
+
+            // if (userToLogin){
+            //      if(password === userToLogin.password){
+            //         req.session.userToLogin = userToLogin
+            //         return res.redirect('/');
+            //     }
+            //  }
+            //  .then (userToLogin => {
+
+            //  })
+            if (userToLogin) {
                 if (password) {
-                     userData = userToLogin
-                     delete userToLogin.password;
-                     req.session.userLogged = userData;
+                    userData = userToLogin
+                    delete userToLogin.password;
+                    req.session.userLogged = userData;
 
                     if (req.body.remember) {
                         res.cookie('userEmail', req.body.email, { maxAge: (1000 * 1000) * 90 })
@@ -130,7 +139,7 @@ const userController = {
                     }
                 })
             }
-        }else{
+        } else {
             return res.render('login', {
                 errors: {
                     email: {
@@ -150,12 +159,12 @@ const userController = {
 
     userDetail: (req, res) => {
         db.User.findByPk(req.params.id)
-           .then(user => {
-               res.render('userDetail', {
-                   user
-               })
+            .then(user => {
+                res.render('userDetail', {
+                    user
+                })
             })
-   },
+    },
 
     edit: (req, res) => {
         let id = req.params.id;
