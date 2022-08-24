@@ -26,6 +26,17 @@
                     <label for="password">Contraseña</label>
                 </div>
 
+                <div class="igroup" >
+                    <article class="userImage">
+                    <img src="<%= user.image %>">
+                    </article>
+                </div>
+
+                <div class="igroup">
+                    <input type="file" name="image" value="<%= user.image%>" id="image"><span class="ibar"></span>
+                    <label for="image">Imagen</label>
+                </div>
+
                
 
                 <button type="submit" class="button">Guardar cambios</button>

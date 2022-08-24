@@ -35,7 +35,6 @@ const userController = {
 
     store: (req, res) => {
         console.log(req.files[0].filename)
-            /***********************PARA LAS IMAGENES ***********************/
         let imageBd
 
         if (req.files[0] != undefined) {
@@ -54,17 +53,11 @@ const userController = {
 
             let image
 
-            /*if (req.files[0] != undefined) {
-            image = req.files[0].filename
-            } else {
-            image = "default-image.png"
-             }"
-            /***********************************************************/
             db.User.create({
 
                     ...req.body,
                     password: bcrypt.hashSync('password', 10),
-                    image: '/images/products/' + imageBd
+                    image: '/images/users/' + imageBd
                 })
                 .then(() =>
                     res.redirect('/')
@@ -102,15 +95,7 @@ const userController = {
 
             console.log(req.body)
 
-            // if (userToLogin){
-            //      if(password === userToLogin.password){
-            //         req.session.userToLogin = userToLogin
-            //         return res.redirect('/');
-            //     }
-            //  }
-            //  .then (userToLogin => {
 
-            //  })
             if (userToLogin) {
                 if (password) {
                     userData = userToLogin
@@ -178,9 +163,17 @@ const userController = {
     },
 
     update: (req, res) => {
+        console.log(req.files[0].filename)
+        let imageBd
+
+        if (req.files[0] != undefined) {
+            imageBd = req.files[0].filename
+        } else {
+            imageBd = "default-image.png"
+        }
 
         let id = req.params.id;
-        User.update({...req.body }, {
+        User.update({...req.body, image: '/images/users/' + imageBd }, {
             where: {
                 id: id
             }
