@@ -15,13 +15,11 @@ const Category= db.Category;
 //----------------------------------
 const productsAPIController = {
     'list': (req, res) => {
-    let productId = req.params.id
-    let name = req.params.name
-    let description = req.params.description
-    let detail = '/productDetail/'+ productId
-        db.Product.findAll({
-            attributes: ['id', 'name', 'description']
-        })
+
+    db.Product.findAll({
+        attributes: ['id', 'name', 'description', [db.sequelize.fn("CONCAT",'api/products/',db.Sequelize.col('id')),"detail"]
+        
+    ]})
         .then(products => {
 
             let response = {
