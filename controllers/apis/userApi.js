@@ -13,8 +13,11 @@ const Rol= db.Rol;
 const userAPIController = {
     'list': (req, res) => {
         db.User.findAll({
-            attributes: ['id', 'first_name', 'email']
-        })
+            attributes: ['id', 'first_name', 'email', [db.sequelize.fn("CONCAT",'api/users/',db.Sequelize.col('id')),"detail"]
+            
+        ]})
+
+      
         .then(users => {
             let respuesta = {
                 
