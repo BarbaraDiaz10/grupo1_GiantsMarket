@@ -28,11 +28,11 @@ const productsAPIController = {
                     status: 200,
                     count: products.length,
                     //countByCategory: {},
-                    products: 'api/products'
+                    products: 'api/products/'
                 },
-                data: {
+                data: 
                     products,
-                }
+                
             }
                 res.json(response);
             })
