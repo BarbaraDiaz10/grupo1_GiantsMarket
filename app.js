@@ -12,6 +12,7 @@ var app = express();
 const auth = require('./middlewares/auth')
 const apiUsersRouter = require('./routes/api/users')
 const apiProductsRouter = require('./routes/api/products')
+const apiCategoryRouter = require('./routes/api/category')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -38,7 +39,7 @@ app.use('/', usersRouter);
 //Llamo a la colección de api
 app.use('/api/users',apiUsersRouter);
 app.use('/api/products', apiProductsRouter);
-
+app.use('/api/category', apiCategoryRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
