@@ -21,7 +21,9 @@ module.exports = (sequelize, DataTypes) => {
         // tableName: category,
         timestamps: false,
         /*revisar*/
-        underscored: true
+        underscored: true,
+        freezeTableName: true
+
 
     }
     const Category = sequelize.define(alias, cols, config)

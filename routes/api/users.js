@@ -7,5 +7,7 @@ const userAPIController = require('../../controllers/apis/userApi');
 router.get('/', userAPIController.list);
 //Detalle del usuario
 router.get('/:id', userAPIController.detail);
+//ultimo usuario creado
+router.get('/last-user', userAPIController.lastUser);
 
 module.exports = router;
