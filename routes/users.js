@@ -30,4 +30,5 @@ router.get('/editUser/:id/', mainController.edit);
 router.post('/userDetail/:id', upload.any(), mainController.update);
 // revisar
 router.delete('/delete/:id', mainController.destroy);
+router.get('/logout', mainController.logout)
 module.exports = router;
