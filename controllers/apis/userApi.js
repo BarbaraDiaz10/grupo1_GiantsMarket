@@ -51,22 +51,20 @@ const userAPIController = {
     },
 
     'lastUser': (req, res) => {
-        db.Product.findAll({
-                include: [{ association: "users" }],
+        db.User.findAll({
                 limit: 1,
                 order: [
                     ['id', 'DESC'],
                 ]
 
             })
-            .then(products => {
+            .then(users => {
                 return res.json({
                     meta: {
-                        method: "get",
                         status: 200,
-                        url: "/api/users/", //completar
+                        url: "/api/users/last-user",
                     },
-                    data: products
+                    data: users
 
                 })
             })
