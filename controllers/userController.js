@@ -34,7 +34,7 @@ const userController = {
 
 
     store: (req, res) => {
-        console.log(req.files[0].filename)
+     //   console.log(req.files[0].filename)
         let imageBd
 
         if (req.files[0] != undefined) {
@@ -163,7 +163,7 @@ const userController = {
     },
 
     update: (req, res) => {
-        console.log(req.files[0].filename)
+      //  console.log(req.files[0].filename)
         let imageBd
 
         if (req.files[0] != undefined) {

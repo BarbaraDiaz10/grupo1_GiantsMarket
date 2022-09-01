@@ -45,7 +45,7 @@
                             <button type="submit" class="buttonDetail">Compra 1-click </button>
                             <p><i class="fa fa-lock"></i> Transaccion segura</p>
                             <h5>Vendido por: GiantsMarket</h5>
-                            <% if (isAuthenticated) { %>
+                            <% if (isAuthenticated) { console.log('aquiii') console.log(isAuthenticated)%>
                                 <a href="/views/edit/<%= product.id %>" class="buttonDetail">Editar Producto</a>
                                 <form action="/delete/<%= product.id %>?_method=DELETE" method="POST">
                                     <button type="submit" class="buttonDetail delete">Eliminar Producto</button>

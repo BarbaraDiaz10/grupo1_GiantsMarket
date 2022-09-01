@@ -22,8 +22,8 @@ insert into products values(16,"Mona Lisa","Un cuadro que podras colocar en el b
 
 select * from products;
 
-insert into roles values(1,true);
-insert into roles values(2,false);
+insert into roles values(1,'Adimistrador');
+insert into roles values(2,'Usuario');
 
 select * from roles;
 

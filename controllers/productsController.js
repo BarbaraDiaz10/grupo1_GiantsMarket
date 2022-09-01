@@ -62,7 +62,7 @@ const productsController = {
     },
 
     store: (req, res) => {
-        console.log(req.files[0].filename)
+        //console.log(req.files[0].filename)
             /***********************PARA LAS IMAGENES ***********************/
         let imageBd
 
@@ -102,7 +102,7 @@ const productsController = {
 
 
     update: (req, res) => {
-        console.log(req.files[0].filename)
+       // console.log(req.files[0])
             /***********************PARA LAS IMAGENES ***********************/
         let imageBd
 

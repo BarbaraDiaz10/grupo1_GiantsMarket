@@ -25,7 +25,6 @@ const validationLogin = [
   /*body('email').notEmpty().withMessage("El email no puede ser vacio").bail()
     .isEmail().withMessage("Debe ingresar un formato de email válido"),*/
   body('password').custom((value, {req}) => {
-    console.log(value)
   return db.User.findOne({where: { email: req.body.email}})
   .then((user)=>{
     if (!bcrypt.compare(value, user.password)){

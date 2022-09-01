@@ -41,7 +41,7 @@
                 </p>
             </div>
             <div class="group">
-                <input type="password" name="password" id="password" minlength="8" maxlength="10"><span class="bar"></span>
+                <input type="password" name="password" id="password"><span class="bar"></span>
                 <label class="labelLogin" for="password">Password</label>
                 <p class="error">
                     <%= (locals.errors && errors.password ? errors.password.msg : null) %>
@@ -50,6 +50,7 @@
 
             <div class="group">
                 <input type="date" id="date" name="date" value="">
+                <label class="labelLogin" for="password">Fecha de nacimiento</label>
                 <p class="error">
                     <%= (locals.errors && errors.date ? errors.date.msg : null) %>
                 </p>
@@ -59,7 +60,7 @@
                 <select class="select1" name="role_id" id="role_id">
                     <option value="" disabled selected>Selecciona una opcion</option>
                     <option value="1">Administrador</option>
-                    <option value="0">Usuario</option>
+                    <option value="2">Usuario</option>
               </select>
                 <p class="error">
                     <%= (locals.errors && errors.role_id ? errors.role_id.msg : null) %>
